@@ -56,6 +56,134 @@
         </ul>
     </nav>
 
+        <!-- =========================================
+        MOBILE MENU BUTTON
+    ========================================= -->
+
+    <a href="#intake" class="mobile-header-intake">
+        Gratis intake
+    </a>
+
+    <button class="menu-toggle"
+            type="button"
+            aria-label="Menu openen"
+            aria-expanded="false">
+
+        <span class="hamburger"></span>
+    </button>
+
+
+    <!-- =========================================
+        MOBILE MENU
+    ========================================= -->
+
+    <nav class="mobile-menu" aria-label="Mobiele navigatie">
+
+        <ul class="mobile-menu-list">
+
+
+            <!-- BEHANDELINGEN -->
+
+            <li class="mobile-dropdown">
+
+                <button class="mobile-dropdown-toggle" type="button">
+                    <span>Behandelingen</span>
+                    <span class="mobile-arrow">+</span>
+                </button>
+
+                <ul class="mobile-submenu">
+
+                    <li>
+                        <a href="#laser">
+                            Laserbehandelingen
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#peeling">
+                            Chemische peeling
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#microneedling">
+                            Microneedling
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+            <!-- HUIDPROBLEMEN -->
+
+            <li class="mobile-dropdown">
+
+                <button class="mobile-dropdown-toggle" type="button">
+                    <span>Huidproblemen</span>
+                    <span class="mobile-arrow">+</span>
+                </button>
+
+                <ul class="mobile-submenu">
+
+                    <li>
+                        <a href="#acne">
+                            Acne
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#pigmentvlekken">
+                            Pigmentvlekken
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#rosacea">
+                            Rosacea
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+            <!-- NORMAL LINKS -->
+
+            <li>
+                <a href="#over-ons">
+                    Over ons
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
+
+            <!-- BUTTONS -->
+
+            <li class="mobile-menu-button">
+                <a href="#afspraak">
+                    Afspraak maken
+                </a>
+            </li>
+
+            <li class="mobile-menu-button mobile-menu-primary">
+                <a href="#intake">
+                    Gratis intake
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
   </header>
 
 
@@ -226,42 +354,54 @@
 
     <h2>Onze Instagram 📸</h2>
 
-    <div class="results-gallery">
+    <div class="desktop-photo-slider">
 
-        <a href="https://www.instagram.com/p/DbjDo6oMbYm/"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="result-item">
-            <img src="insta1.jpg" alt="Resultaat 1">
-        </a>
+        <!-- LEFT ARROW -->
+        <button class="photo-arrow photo-prev"
+                type="button"
+                aria-label="Vorige foto's">
+            &#10094;
+        </button>
 
-        <a href="https://www.instagram.com/p/DbjBI81MNlW/"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="result-item">
-            <img src="insta3.jpg" alt="Resultaat 2">
-        </a>
+        <!-- PHOTOS -->
+        <div class="photo-slider-window">
 
-        <a href="https://www.instagram.com/p/DbsoADzMEwD/"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="result-item">
-            <img src="insta2.jpg" alt="Resultaat 3">
-        </a>
+            <div class="photo-slider-track">
 
-        <a href="https://www.instagram.com/p/Dbsszu7MZ92/"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="result-item">
-            <img src="insta4.jpg" alt="Resultaat 4">
-        </a>
+                <a href="#" class="photo-slide">
+                    <img src="insta1.jpg" alt="Resultaat 1">
+                </a>
 
-        <a href="https://www.instagram.com/p/DbogSJ5skR4/"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="result-item">
-            <img src="insta5.jpg" alt="Resultaat 5">
-        </a>
+                <a href="#" class="photo-slide">
+                    <img src="insta2.jpg" alt="Resultaat 2">
+                </a>
+
+                <a href="#" class="photo-slide">
+                    <img src="insta3.jpg" alt="Resultaat 3">
+                </a>
+
+                <a href="#" class="photo-slide">
+                    <img src="insta4.jpg" alt="Resultaat 4">
+                </a>
+
+                <a href="#" class="photo-slide">
+                    <img src="insta5.jpg" alt="Resultaat 5">
+                </a>
+
+                <a href="#" class="photo-slide">
+                    <img src="insta1.jpg" alt="Resultaat 1">
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT ARROW -->
+        <button class="photo-arrow photo-next"
+                type="button"
+                aria-label="Volgende foto's">
+            &#10095;
+        </button>
 
     </div>
 
