@@ -163,3 +163,12 @@ mobileLinks.forEach(function(link) {
 
 });
 
+const today = new Date().getDay();
+
+const openingDays = document.querySelectorAll(".opening-hours [data-day]");
+
+openingDays.forEach(day => {
+    if (Number(day.dataset.day) === today) {
+        day.classList.add("today");
+    }
+});

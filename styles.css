@@ -195,71 +195,116 @@ body {
     position: absolute;
     right: 20px;
     bottom: 20px;
+
     display: flex;
-    flex-direction: column; /* Vertical layout for thumbnails */
+    flex-direction: column;
     align-items: flex-end;
+
+    gap: 10px;
 }
 
-/* Base Thumbnail Size (percentage of the parent/container width) */
+
+/* HEXAGON THUMBNAILS */
 .thumbnail {
-    width: 10%; /* 10% of the width of the container or the viewport */
-    height: auto; /* Maintain aspect ratio */
-    margin: 7px 0;
+    width: 10vw;
+    height: 10vw;
+
+    max-width: 120px;
+    max-height: 120px;
+
+    min-width: 30px;
+    min-height: 30px;
+
+    object-fit: cover;
+
     cursor: pointer;
     opacity: 0.6;
-    transition: opacity 0.3s;
+
+    /* Makes the image a hexagon */
+    clip-path: polygon(
+        25% 5%,
+        75% 5%,
+        100% 50%,
+        75% 95%,
+        25% 95%,
+        0 50%
+    );
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
 }
 
-/* Ensuring the thumbnail is always square */
-.thumbnail {
-    height: 10vw; /* 10% of the viewport width */
-    width: 10vw;  /* 10% of the viewport width */
-}
 
-/* Maximum and Minimum Sizes */
-.thumbnail {
-    max-width: 120px; /* Maximum size */
-    min-width: 30px;  /* Minimum size */
-    max-height: 120px; /* Maximum size */
-    min-height: 30px;  /* Minimum size */
-}
-
-
+/* Hover + selected thumbnail */
 .thumbnail:hover,
 .thumbnail.active {
     opacity: 1;
+    transform: scale(1.08);
 }
 
 .motto {
     position: absolute;
-    left: 2%; /* 2% from the left of the container or viewport */
-    bottom: 5%; /* 5% from the bottom of the container or viewport */
-    font-size: clamp(16px, 2vw, 24px); /* Font size scales but stays between 16px and 24px */
-    color: var(--text-color);
-    background: var(---moto-bg-color);
-    padding: clamp(8px, 1.5vw, 16px); /* Padding scales but stays between 8px and 16px */
-    z-index: 1; /* Ensure motto is on top of the slide content */
-    max-width: 90%; /* Ensure it doesn’t exceed 90% of the viewport width */
-    width: auto; /* Allow the motto to adjust its width dynamically */
+    left: 4%;
+    bottom: 7%;
+
+    /* Typography */
+    font-size: clamp(22px, 2.4vw, 38px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+
+    /* Saturn brand color */
+    color: var(--hover-color);
+
+    /* Elegant light background */
+    background: rgba(255, 255, 255, 0.88);
+
+    /* Space around text */
+    padding: 14px 22px;
+
+    /* Softer premium shape */
+    border-radius: 4px;
+
+    /* Small Saturn-colored accent */
+    border-left: 4px solid var(--hover-color);
+
+    /* Make readable on every photo */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+
+    /* Slight glass effect */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    z-index: 3;
+
+    max-width: 80%;
+    width: fit-content;
 }
 
 /* Main Content Section */
 .content-container {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
-    padding-top: 20px; /* Extra space between the slider and content */
+
+
     max-width: 100%;
 }
 
 .content-image {
     flex: 1;
     padding-right: 20px;
+
+    display: flex;
 }
 
 .content-image img {
+    display: block;
+
     width: 100%;
-    height: auto;
+    height: 100%;
+
     object-fit: cover;
 }
 
@@ -271,19 +316,44 @@ body {
 
 .content-text h2 {
     font-size: 2em;
-    margin-bottom: 20px;
 }
 
 .content-text p {
     font-size: 1em;
     line-height: 1.6;
-    margin-bottom: 20px;
 }
 
 .content-text ul {
     list-style-type: disc;
     padding-left: 20px;
-    margin-bottom: 20px;
+}
+
+.content-text li {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 12px;
+
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.button-container .action-btn {
+    min-width: 180px;
+    padding: 14px 24px;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    cursor: pointer;
 }
 
 /* Balkje Section */
@@ -454,23 +524,38 @@ body {
 /* =========================
    RESULTATEN
 ========================= */
-
 .results-section {
     width: 100%;
-    padding: 70px 4% 90px;
+    padding: 30px clamp(24px, 6vw, 100px) 20px;
     background: #f7f7f7;
 }
 
 .results-section h2 {
     margin: 0 0 50px;
-
-    font-size: clamp(30px, 3vw, 60px);
-    font-weight: 200;
-    line-height: 1;
-
-    color: var(--hover-color);
-    text-shadow: none;
+    font-size: 34px;
+    line-height: 1.1;
 }
+
+.results-section h2 a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    color: inherit;
+    text-decoration: none;
+
+    transition: opacity 0.2s ease;
+}
+
+.results-section h2 a:hover {
+    opacity: 0.7;
+}
+
+.results-section h2 i {
+    font-size: 0.9em;
+}
+
+
 
 
 /* Gallery */
@@ -883,8 +968,8 @@ body {
     white-space: nowrap;
 }
 
-.opening-hours .saturday {
-    font-weight: 600;
+.opening-hours .today {
+    font-weight: 700;
 }
 
 
@@ -1747,7 +1832,7 @@ body {
 
     .results-section h2 {
         margin: 0 0 30px;
-        font-size: 34px;
+        font-size: 24px;
         line-height: 1.1;
     }
 
