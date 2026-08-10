@@ -1632,7 +1632,7 @@ body {
     .content-text {
         width: 100%;
 
-        padding: 35px 22px 40px;
+        padding: 35px 22px 0px;
         margin: 0;
     }
 
@@ -1684,6 +1684,7 @@ body {
         font-size: 15px;
 
         text-align: center;
+        color: var(--text-color);
     }
 
 
@@ -1702,7 +1703,7 @@ body {
 
         width: 100%;
 
-        padding: 15px 20px;
+        padding: 10px 20px;
 
         overflow-x: auto;
         overflow-y: hidden;
