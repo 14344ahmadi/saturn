@@ -1,174 +1,435 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelectorAll('.slide');
-    const thumbnails = document.querySelectorAll('.thumbnail');
-    let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", function () {
 
-    function getSlideWidth() {
-        return document.querySelector('.slide').clientWidth;
-    }
+    /* =====================================================
+       1. HOMEPAGE IMAGE SLIDER
+       Only runs when .slides and .slide exist
+    ===================================================== */
 
-    function showSlide(index) {
-        const slider = document.querySelector('.slides');
-        const slideWidth = getSlideWidth();
+    const slider = document.querySelector(".slides");
+    const slides = document.querySelectorAll(".slide");
+    const thumbnails = document.querySelectorAll(".thumbnail");
 
-        slider.style.transform = `translateX(-${index * slideWidth}px)`;
+    if (slider && slides.length > 0) {
 
-        thumbnails.forEach((thumbnail, idx) => {
-            thumbnail.classList.toggle('active', idx === index);
+        let currentIndex = 0;
+
+        function getSlideWidth() {
+            return slides[0].clientWidth;
+        }
+
+        function showSlide(index) {
+
+            const slideWidth = getSlideWidth();
+
+            slider.style.transform =
+                `translateX(-${index * slideWidth}px)`;
+
+            thumbnails.forEach(function (thumbnail, idx) {
+
+                thumbnail.classList.toggle(
+                    "active",
+                    idx === index
+                );
+
+            });
+        }
+
+
+        // Thumbnail clicks
+        thumbnails.forEach(function (thumbnail, index) {
+
+            thumbnail.addEventListener("click", function () {
+
+                currentIndex = index;
+
+                showSlide(currentIndex);
+
+            });
+
         });
-    }
 
-    thumbnails.forEach((thumbnail, index) => {
-        thumbnail.addEventListener('click', function() {
-            currentIndex = index;
-            showSlide(index);
+
+        // Automatic slider
+        setInterval(function () {
+
+            currentIndex =
+                (currentIndex + 1) % slides.length;
+
+            showSlide(currentIndex);
+
+        }, 5000);
+
+
+        // Initial position
+        showSlide(currentIndex);
+
+
+        // Recalculate slider when browser resizes
+        window.addEventListener("resize", function () {
+
+            showSlide(currentIndex);
+
         });
-    });
 
-    setInterval(function() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-    }, 5000);
-
-    showSlide(currentIndex);
-
-    window.addEventListener('resize', function() {
-        showSlide(currentIndex);
-    });
-});
-
-/* =========================================
-   DESKTOP PHOTO SLIDER
-========================================= */
-
-const photoTrack = document.querySelector(".photo-slider-track");
-const photoSlides = document.querySelectorAll(".photo-slide");
-
-const photoPrev = document.querySelector(".photo-prev");
-const photoNext = document.querySelector(".photo-next");
-
-let photoIndex = 0;
-
-function updatePhotoSlider() {
-
-    if (!photoSlides.length) return;
-
-    const slideWidth = photoSlides[0].offsetWidth;
-    const gap = 30;
-
-    photoTrack.style.transform =
-        `translateX(-${photoIndex * (slideWidth + gap)}px)`;
-}
-
-
-/* NEXT */
-
-photoNext.addEventListener("click", () => {
-
-    const visiblePhotos = 5;
-    const maxIndex = photoSlides.length - visiblePhotos;
-
-    if (photoIndex < maxIndex) {
-        photoIndex++;
-    } else {
-        photoIndex = 0;
     }
 
-    updatePhotoSlider();
-});
+
+    /* =====================================================
+       2. DESKTOP INSTAGRAM / PHOTO SLIDER
+       Only runs on pages where these elements exist
+    ===================================================== */
+
+    const photoTrack =
+        document.querySelector(".photo-slider-track");
+
+    const photoSlides =
+        document.querySelectorAll(".photo-slide");
+
+    const photoPrev =
+        document.querySelector(".photo-prev");
+
+    const photoNext =
+        document.querySelector(".photo-next");
 
 
-/* PREVIOUS */
+    if (
+        photoTrack &&
+        photoPrev &&
+        photoNext &&
+        photoSlides.length > 0
+    ) {
 
-photoPrev.addEventListener("click", () => {
-
-    const visiblePhotos = 5;
-    const maxIndex = photoSlides.length - visiblePhotos;
-
-    if (photoIndex > 0) {
-        photoIndex--;
-    } else {
-        photoIndex = maxIndex;
-    }
-
-    updatePhotoSlider();
-});
+        let photoIndex = 0;
 
 
-/* Keep correct position after resize */
+        function getVisiblePhotos() {
 
-window.addEventListener("resize", updatePhotoSlider);
+            // Mobile / tablet
+            if (window.innerWidth <= 768) {
+                return 1;
+            }
 
-/* =========================================
-   MOBILE MENU
-========================================= */
+            // Smaller desktop
+            if (window.innerWidth <= 1100) {
+                return 3;
+            }
 
-const menuToggle = document.querySelector('.menu-toggle');
-const mobileMenu = document.querySelector('.mobile-menu');
-const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-
-
-/* Open / close hamburger menu */
-
-menuToggle.addEventListener('click', function() {
-
-    menuToggle.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-
-    document.body.classList.toggle('menu-open');
-
-    const isOpen = menuToggle.classList.contains('active');
-
-    menuToggle.setAttribute('aria-expanded', isOpen);
-
-});
+            // Large desktop
+            return 5;
+        }
 
 
-/* Open / close Behandelingen and Huidproblemen */
+        function updatePhotoSlider() {
 
-mobileDropdowns.forEach(function(dropdown) {
+            const slideWidth =
+                photoSlides[0].offsetWidth;
 
-    const button = dropdown.querySelector('.mobile-dropdown-toggle');
+            // This must match your CSS gap
+            const gap = 30;
 
-    button.addEventListener('click', function() {
+            const visiblePhotos =
+                getVisiblePhotos();
 
-        dropdown.classList.toggle('active');
+            const maxIndex =
+                Math.max(
+                    0,
+                    photoSlides.length - visiblePhotos
+                );
 
-    });
 
-});
+            // Prevent index from being too large
+            if (photoIndex > maxIndex) {
+                photoIndex = maxIndex;
+            }
 
 
-/* Close menu after clicking a link */
+            photoTrack.style.transform =
+                `translateX(-${
+                    photoIndex * (slideWidth + gap)
+                }px)`;
 
-const mobileLinks = document.querySelectorAll(
-    '.mobile-menu a'
-);
+        }
 
-mobileLinks.forEach(function(link) {
 
-    link.addEventListener('click', function() {
+        /* NEXT */
 
-        menuToggle.classList.remove('active');
-        mobileMenu.classList.remove('active');
+        photoNext.addEventListener("click", function () {
 
-        document.body.classList.remove('menu-open');
+            const visiblePhotos =
+                getVisiblePhotos();
 
-        menuToggle.setAttribute(
-            'aria-expanded',
-            'false'
+            const maxIndex =
+                Math.max(
+                    0,
+                    photoSlides.length - visiblePhotos
+                );
+
+
+            if (photoIndex < maxIndex) {
+
+                photoIndex++;
+
+            } else {
+
+                photoIndex = 0;
+
+            }
+
+
+            updatePhotoSlider();
+
+        });
+
+
+        /* PREVIOUS */
+
+        photoPrev.addEventListener("click", function () {
+
+            const visiblePhotos =
+                getVisiblePhotos();
+
+            const maxIndex =
+                Math.max(
+                    0,
+                    photoSlides.length - visiblePhotos
+                );
+
+
+            if (photoIndex > 0) {
+
+                photoIndex--;
+
+            } else {
+
+                photoIndex = maxIndex;
+
+            }
+
+
+            updatePhotoSlider();
+
+        });
+
+
+        /* Resize */
+
+        window.addEventListener(
+            "resize",
+            updatePhotoSlider
         );
 
-    });
 
-});
+        /* Initial position */
 
-const today = new Date().getDay();
+        updatePhotoSlider();
 
-const openingDays = document.querySelectorAll(".opening-hours [data-day]");
-
-openingDays.forEach(day => {
-    if (Number(day.dataset.day) === today) {
-        day.classList.add("today");
     }
+
+
+    /* =====================================================
+       3. MOBILE HEADER MENU
+       Runs on every page that contains the header
+    ===================================================== */
+
+    const menuToggle =
+        document.querySelector(".menu-toggle");
+
+    const mobileMenu =
+        document.querySelector(".mobile-menu");
+
+
+    if (menuToggle && mobileMenu) {
+
+        /* Hamburger open / close */
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                menuToggle.classList.toggle("active");
+
+                mobileMenu.classList.toggle("active");
+
+                document.body.classList.toggle(
+                    "menu-open"
+                );
+
+
+                const isOpen =
+                    menuToggle.classList.contains(
+                        "active"
+                    );
+
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    isOpen ? "true" : "false"
+                );
+
+            }
+        );
+
+
+        /* =================================================
+           MOBILE DROPDOWNS
+        ================================================= */
+
+        const mobileDropdowns =
+            document.querySelectorAll(
+                ".mobile-dropdown"
+            );
+
+
+        mobileDropdowns.forEach(function (dropdown) {
+
+            const button =
+                dropdown.querySelector(
+                    ".mobile-dropdown-toggle"
+                );
+
+
+            // Safety check
+            if (!button) {
+                return;
+            }
+
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    /*
+                    Optional:
+                    close other dropdowns first
+                    */
+
+                    mobileDropdowns.forEach(
+                        function (otherDropdown) {
+
+                            if (
+                                otherDropdown !== dropdown
+                            ) {
+
+                                otherDropdown.classList.remove(
+                                    "active"
+                                );
+
+                                const otherArrow =
+                                    otherDropdown.querySelector(
+                                        ".mobile-arrow"
+                                    );
+
+                                if (otherArrow) {
+                                    otherArrow.textContent = "+";
+                                }
+
+                            }
+
+                        }
+                    );
+
+
+                    /* Open / close clicked dropdown */
+
+                    dropdown.classList.toggle(
+                        "active"
+                    );
+
+
+                    /* Change + to − */
+
+                    const arrow =
+                        button.querySelector(
+                            ".mobile-arrow"
+                        );
+
+
+                    if (arrow) {
+
+                        arrow.textContent =
+                            dropdown.classList.contains(
+                                "active"
+                            )
+                                ? "×"
+                                : "+";
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* =================================================
+           CLOSE MOBILE MENU AFTER CLICKING LINK
+        ================================================= */
+
+        const mobileLinks =
+            mobileMenu.querySelectorAll("a");
+
+
+        mobileLinks.forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    menuToggle.classList.remove(
+                        "active"
+                    );
+
+                    mobileMenu.classList.remove(
+                        "active"
+                    );
+
+                    document.body.classList.remove(
+                        "menu-open"
+                    );
+
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       4. FOOTER OPENING HOURS
+       Runs anywhere the footer exists
+    ===================================================== */
+
+    const openingDays =
+        document.querySelectorAll(
+            ".opening-hours [data-day]"
+        );
+
+
+    if (openingDays.length > 0) {
+
+        const today =
+            new Date().getDay();
+
+
+        openingDays.forEach(function (day) {
+
+            if (
+                Number(day.dataset.day) === today
+            ) {
+
+                day.classList.add("today");
+
+            }
+
+        });
+
+    }
+
 });
