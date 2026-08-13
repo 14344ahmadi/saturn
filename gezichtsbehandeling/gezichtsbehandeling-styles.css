@@ -1,0 +1,862 @@
+/* =========================================================
+   HYDROFACIAL CLEANSING
+========================================================= */
+
+.hydro-page {
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+}
+
+.hydro-label {
+    display: block;
+    margin-bottom: 18px;
+
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hydro-hero {
+    position: relative;
+
+    width: 100%;
+    height: 720px;
+
+    overflow: hidden;
+}
+
+.hydro-hero-image,
+.hydro-hero-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.hydro-hero-image img {
+    display: block;
+    object-fit: cover;
+}
+
+.hydro-hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(24, 19, 17, 0.68) 0%,
+        rgba(24, 19, 17, 0.34) 52%,
+        rgba(24, 19, 17, 0.05) 100%
+    );
+}
+
+.hydro-hero-overlay {
+    position: absolute;
+
+    top: 50%;
+    left: clamp(24px, 7vw, 120px);
+
+    z-index: 2;
+
+    max-width: 750px;
+
+    transform: translateY(-50%);
+
+    color: #fff;
+}
+
+.hydro-hero .hydro-label {
+    color: rgba(255,255,255,.85);
+}
+
+.hydro-hero h1 {
+    margin: 0 0 28px;
+
+    font-size: clamp(62px, 7vw, 105px);
+    font-weight: 500;
+    line-height: .93;
+    letter-spacing: -4px;
+
+    color: #fff;
+}
+
+.hydro-hero p {
+    max-width: 600px;
+
+    margin: 0;
+
+    font-size: 19px;
+    line-height: 1.75;
+}
+
+
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.hydro-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: clamp(50px, 8vw, 140px);
+
+    max-width: 1450px;
+
+    margin: 0 auto;
+    padding: 130px clamp(24px, 7vw, 120px);
+}
+
+.hydro-intro h2 {
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size: clamp(42px, 4.6vw, 68px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.hydro-intro-text {
+    padding-top: 42px;
+}
+
+.hydro-intro-text p {
+    max-width: 630px;
+
+    margin: 0 0 18px;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.hydro-intro-text .hydro-lead {
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   BENEFITS
+========================================================= */
+
+.hydro-benefits {
+    padding: 110px clamp(24px, 7vw, 120px);
+
+    background: #f7f5f4;
+}
+
+.hydro-section-heading {
+    max-width: 800px;
+
+    margin-bottom: 65px;
+}
+
+.hydro-section-heading h2 {
+    margin: 0;
+
+    font-size: clamp(42px, 4.5vw, 66px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.hydro-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid #d9d3cf;
+}
+
+.hydro-benefit {
+    min-height: 315px;
+
+    padding: 42px 42px 42px 0;
+
+    border-right: 1px solid #d9d3cf;
+}
+
+.hydro-benefit + .hydro-benefit {
+    padding-left: 42px;
+}
+
+.hydro-benefit:last-child {
+    border-right: 0;
+}
+
+.hydro-benefit-number {
+    display: block;
+
+    margin-bottom: 65px;
+
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.hydro-benefit h3 {
+    margin: 0 0 16px;
+
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.hydro-benefit p {
+    max-width: 350px;
+
+    margin: 0;
+
+    color: #555;
+
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.hydro-experience {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+
+    min-height: 850px;
+}
+
+.hydro-experience-image {
+    min-height: 850px;
+}
+
+.hydro-experience-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.hydro-experience-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 80px clamp(40px, 7vw, 110px);
+}
+
+.hydro-experience-content > h2 {
+    max-width: 630px;
+
+    margin: 0 0 24px;
+
+    font-size: clamp(42px, 4.5vw, 65px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.hydro-experience-content > p {
+    max-width: 580px;
+
+    margin: 0 0 30px;
+
+    color: #555;
+
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.hydro-step {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+
+    gap: 18px;
+
+    padding: 24px 0;
+
+    border-top: 1px solid #e4dfdc;
+}
+
+.hydro-step:last-child {
+    border-bottom: 1px solid #e4dfdc;
+}
+
+.hydro-step > span {
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.hydro-step h3 {
+    margin: 0 0 7px;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.hydro-step p {
+    max-width: 500px;
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+
+
+/* =========================================================
+   SUITABLE
+========================================================= */
+
+.hydro-suitable {
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+
+    gap: 90px;
+
+    padding: 120px clamp(24px, 7vw, 120px);
+    background: #f7f5f4;
+}
+
+.hydro-suitable-content {
+    max-width: 620px;
+}
+
+.hydro-suitable-content h2 {
+    margin: 0 0 25px;
+
+    font-size: clamp(42px, 4.5vw, 65px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.hydro-suitable-content p {
+    margin: 0;
+
+    color: #5d5854;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.hydro-suitable-list {
+    border-top: 1px solid #dfdad7;
+}
+
+.hydro-suitable-list div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    padding: 24px 0;
+
+    border-bottom: 1px solid #dfdad7;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.hydro-suitable-list span {
+    color: var(--hover-color);
+
+    font-size: 27px;
+    font-weight: 300;
+}
+
+
+/* =========================================================
+   HYDROFACIAL — SCIENTIFIC RESEARCH
+========================================================= */
+
+.hydro-research {
+    padding: 120px clamp(24px, 7vw, 120px);
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #eee8e2 100%
+        );
+}
+
+.hydro-research-inner {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.hydro-research-heading {
+    max-width: 790px;
+
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+.hydro-research-heading h2 {
+    margin: 0 0 24px;
+
+    font-size: clamp(45px, 5vw, 72px);
+    font-weight: 500;
+    line-height: 1.03;
+    letter-spacing: -2px;
+}
+
+.hydro-research-heading p {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: #615b56;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.hydro-research-card {
+    padding: clamp(30px, 5vw, 70px);
+
+    background: rgba(255, 255, 255, 0.82);
+
+    border: 1px solid rgba(139, 100, 83, 0.12);
+
+    box-shadow:
+        0 25px 80px rgba(58, 46, 38, 0.07);
+}
+
+
+/* Top small heading */
+
+.hydro-research-top {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 15px;
+
+    color: var(--hover-color);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+}
+
+.hydro-research-top div {
+    flex: 1;
+
+    height: 1px;
+
+    background: #ddd5cf;
+}
+
+
+/* =========================================
+   RESEARCH ROW
+========================================= */
+
+.hydro-research-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+
+    gap: 30px;
+
+    padding: 48px 0;
+
+    border-bottom: 1px solid #ddd7d2;
+}
+
+
+/* Icon */
+
+.hydro-research-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 72px;
+    height: 72px;
+
+    border-radius: 50%;
+
+    background: #eee7e0;
+
+    color: var(--hover-color);
+
+    font-size: 23px;
+}
+
+
+/* Text */
+
+.hydro-research-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--hover-color);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hydro-research-copy h3 {
+    margin: 0 0 13px;
+
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.hydro-research-copy > p {
+    max-width: 780px;
+
+    margin: 0;
+
+    color: #5c5753;
+
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+
+/* =========================================
+   METHOD POINTS
+========================================= */
+
+.hydro-research-points {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px 25px;
+
+    margin-top: 25px;
+}
+
+.hydro-research-points span {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #514c48;
+
+    font-size: 14px;
+}
+
+.hydro-research-points i {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 23px;
+    height: 23px;
+
+    border: 1px solid #cfc4bd;
+    border-radius: 50%;
+
+    color: var(--hover-color);
+
+    font-size: 9px;
+}
+
+
+/* =========================================
+   FINDINGS
+========================================= */
+
+.hydro-research-findings {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    margin-top: 45px;
+
+    border-top: 1px solid #ddd7d2;
+    border-bottom: 1px solid #ddd7d2;
+}
+
+.hydro-finding {
+    padding: 38px 24px;
+
+    text-align: center;
+
+    border-right: 1px solid #ddd7d2;
+}
+
+.hydro-finding:last-child {
+    border-right: 0;
+}
+
+.hydro-finding-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #eee7e0;
+
+    color: var(--hover-color);
+
+    font-size: 21px;
+}
+
+.hydro-finding strong {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 16px;
+}
+
+.hydro-finding span {
+    display: block;
+
+    color: #716b66;
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+
+/* =========================================
+   SOURCES
+========================================= */
+
+.hydro-research-sources {
+    margin-top: 55px;
+
+    padding: 35px;
+
+    background: #f7f4f1;
+}
+
+.hydro-source-title {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+
+    color: var(--hover-color);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.hydro-source-title i {
+    font-size: 17px;
+}
+
+.hydro-research-sources ol {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.hydro-research-sources li {
+    padding: 13px 0;
+
+    color: #5d5752;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.hydro-research-sources li strong {
+    color: #292522;
+}
+
+.hydro-research-sources a {
+    display: inline-block;
+
+    margin-left: 5px;
+
+    color: var(--hover-color);
+
+    font-weight: 600;
+    text-decoration: none;
+
+    border-bottom: 1px solid rgba(139,100,83,.4);
+}
+
+.hydro-research-sources a:hover {
+    border-bottom-color: var(--hover-color);
+}
+
+.hydro-source-note {
+    margin: 25px 0 0;
+    padding-top: 22px;
+
+    border-top: 1px solid #ddd6d1;
+
+    color: #817a74;
+
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .hydro-hero {
+        height: 620px;
+    }
+
+    .hydro-hero-overlay {
+        top: auto;
+        right: 22px;
+        bottom: 50px;
+        left: 22px;
+
+        transform: none;
+    }
+
+    .hydro-hero::after {
+        background: linear-gradient(
+            0deg,
+            rgba(20,17,15,.78) 0%,
+            rgba(20,17,15,.28) 62%,
+            rgba(20,17,15,.06) 100%
+        );
+    }
+
+    .hydro-hero h1 {
+        font-size: 54px;
+        letter-spacing: -2px;
+    }
+
+    .hydro-hero p {
+        font-size: 16px;
+    }
+
+
+    .hydro-intro,
+    .hydro-science-inner,
+    .hydro-suitable {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .hydro-intro {
+        padding: 80px 22px;
+    }
+
+    .hydro-intro-text {
+        padding-top: 0;
+    }
+
+
+    .hydro-benefits {
+        padding: 80px 22px;
+    }
+
+    .hydro-benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hydro-benefit,
+    .hydro-benefit + .hydro-benefit {
+        min-height: auto;
+
+        padding: 35px 0;
+
+        border-right: 0;
+        border-bottom: 1px solid #d9d3cf;
+    }
+
+    .hydro-benefit-number {
+        margin-bottom: 30px;
+    }
+
+
+    .hydro-experience {
+        grid-template-columns: 1fr;
+    }
+
+    .hydro-experience-image {
+        min-height: 430px;
+    }
+
+    .hydro-experience-content {
+        padding: 70px 22px;
+    }
+
+     .hydro-research-findings {
+        grid-template-columns: 1fr;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .hydro-finding {
+        width: 100%;
+        padding: 28px 12px;
+        box-sizing: border-box;
+        border-right: 0;
+        border-bottom: 1px solid #ddd7d2;
+    }
+
+    .hydro-research-card {
+        width: 100%;
+        min-width: 0;
+        padding: 24px 16px;
+        box-sizing: border-box;
+    }
+
+
+
+    .hydro-suitable {
+        padding: 80px 22px;
+    }
+
+
+    
+
+}
