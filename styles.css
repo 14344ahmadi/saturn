@@ -44,21 +44,19 @@ body {
 
 .action-btn {
   padding: 10px 18px;
-  border: 1px solid var(--hover-color);
+  border: 1px solid #f3eee8;
   border-radius: 6px;
   font-weight: 500;
   transition: all 0.2s ease;
 }
 
 .action-btn:hover {
-  background: var(--hover-color);
-  color: #fff !important;
+  background: #f3eee8;
 }
 
 /* Main button */
 .primary-btn {
-  background: var(--hover-color);
-  color: #fff !important;
+  background: #f3eee8;
 }
 
 .primary-btn:hover {
@@ -741,8 +739,8 @@ body {
 ========================= */
 
 .site-footer {
-    background: var(--hover-color);
-    color: #fff;
+    background: #fff;
+    color: #000;
 
     padding: 60px clamp(24px, 7vw, 120px) 30px;
 }
@@ -751,7 +749,7 @@ body {
 /* All footer links */
 
 .site-footer a {
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
 
@@ -810,7 +808,8 @@ body {
     width: 50px;
     height: 50px;
 
-    background: rgba(255, 255, 255, 0.14);
+    background: #f1eeec;
+    color: #000;
 
     clip-path: polygon(
         25% 5%,
@@ -841,7 +840,7 @@ body {
     justify-content: space-between;
     gap: 40px;
 
-    background: rgba(255, 255, 255, 0.10);
+    background: #f7f5f4;
 }
 
 .footer-cta h2 {
@@ -850,7 +849,7 @@ body {
     font-size: clamp(36px, 4vw, 62px);
     line-height: 1.1;
 
-    color: #fff;
+    color: #000;
 }
 
 .footer-cta p {
@@ -876,12 +875,12 @@ body {
 
     padding: 17px 32px;
 
-    background: #fff;
+    background: #f3eee8;
 
     /* override footer white link */
-    color: var(--hover-color) !important;
+    color: #000;
 
-    border: 2px solid #fff;
+    border: 2px solid #f3eee8;
     border-radius: 50px;
 
     font-size: 17px;
@@ -920,7 +919,7 @@ body {
 .footer-column h3 {
     margin: 0 0 22px;
 
-    color: #fff;
+    color: #000;
 
     font-size: 22px;
     font-weight: 600;
@@ -1026,7 +1025,7 @@ body {
     margin: 60px auto 0;
     padding-top: 25px;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid #ddd;
 
     display: flex;
     align-items: center;
@@ -1765,8 +1764,8 @@ body {
 
         padding: 9px 14px;
 
-        background: var(--hover-color);
-        color: #fff;
+        background: #f3eee8;
+        color: #000;
         border-radius: 6px;
 
         font-size: 13px;
@@ -2051,10 +2050,11 @@ body {
 
         padding: 14px 20px;
 
-        border: 1px solid var(--hover-color);
+        background: #fff;
+        border: 1px solid #f3eee8;
         border-radius: 6px;
 
-        color: var(--hover-color);
+        color: #000;
 
         font-size: 16px;
         font-weight: 600;
@@ -2064,9 +2064,9 @@ body {
     /* Gratis intake */
 
     .mobile-menu-list .mobile-menu-primary a {
-        background: var(--hover-color);
-
-        color: #fff;
+        background: #f3eee8;
+        border-color: #f3eee8;
+        color: #000;
     }
 
 
@@ -2302,7 +2302,7 @@ body {
         font-size: 15px;
 
         text-align: center;
-        color: var(--text-color);
+        color: #f3eee8;
     }
 
 
