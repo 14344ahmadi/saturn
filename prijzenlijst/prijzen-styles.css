@@ -1,0 +1,371 @@
+/* =========================================
+   PRIJZEN PAGE
+========================================= */
+
+.prices-page {
+    background: #fff;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.prices-hero {
+    padding: 150px 7% 100px;
+    background: #f7f5f4;
+}
+
+.prices-hero-content {
+    max-width: 900px;
+}
+
+.prices-label {
+    display: inline-block;
+    margin-bottom: 22px;
+
+    color: var(--hover-color);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.prices-hero h1 {
+    margin: 0 0 30px;
+
+    font-size: clamp(48px, 7vw, 92px);
+    line-height: 0.98;
+    font-weight: 500;
+    letter-spacing: -3px;
+}
+
+.prices-hero p {
+    max-width: 650px;
+    margin: 0;
+
+    font-size: 18px;
+    line-height: 1.7;
+    color: #655f5a; 
+}
+
+
+/* =========================================
+   VOORDELEN
+========================================= */
+
+.prices-benefits {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+
+    max-width: 1400px;
+    margin: 0 auto;
+
+    padding: 90px 6%;
+    gap: 20px;
+}
+
+.price-benefit-card {
+    position: relative;
+
+    min-height: 320px;
+
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    
+    background: #f7f5f4;
+
+    border-radius: 24px;
+}
+
+.price-benefit-featured {
+    background: #f7f2ed;
+    color: #000000;
+}
+
+.price-benefit-number {
+    align-self: flex-end;
+
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+.price-benefit-small {
+    display: block;
+
+    margin-bottom: 14px;
+
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.price-benefit-card h2 {
+    margin: 0 0 18px;
+
+    font-size: clamp(28px, 3vw, 46px);
+    line-height: 1.05;
+    font-weight: 500;
+}
+
+.price-benefit-card p {
+    max-width: 480px;
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.75;
+}
+
+
+/* =========================================
+   PRICE LIST
+========================================= */
+
+.price-list-section {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 70px 6% 120px;
+}
+
+.price-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 40px;
+
+    margin-bottom: 50px;
+}
+
+.price-list-header h2 {
+    margin: 0;
+
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.05;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   TABS
+========================================= */
+
+.price-tabs {
+    display: inline-flex;
+
+    padding: 5px;
+
+    background: #f3eee9;
+
+    border-radius: 50px;
+}
+
+.price-tab {
+    min-width: 130px;
+
+    padding: 14px 24px;
+
+    background: transparent;
+    border: 0;
+    border-radius: 50px;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.price-tab.active {
+    background: var(--hover-color);
+    color: #fff;
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.price-table {
+    display: none;
+}
+
+.price-table.active {
+    display: block;
+}
+
+.price-table-heading,
+.price-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.price-table-heading {
+    padding: 0 25px 18px;
+
+    color: #8b837c;
+
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.price-row {
+    min-height: 76px;
+
+    padding: 18px 25px;
+
+    border-top: 1px solid #e5ded8;
+
+    transition:
+        padding-left 0.25s ease,
+        background 0.25s ease;
+}
+
+.price-row:last-child {
+    border-bottom: 1px solid #e5ded8;
+}
+
+.price-row:hover {
+    padding-left: 34px;
+
+    background: #faf7f4;
+}
+
+.price-row span {
+    font-size: 19px;
+}
+
+.price-row strong {
+    min-width: 100px;
+
+    text-align: right;
+
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.price-row-highlight {
+    margin-top: 12px;
+
+    border: 0 !important;
+    border-radius: 14px;
+
+    background: #f3ece6;
+}
+
+.price-row-highlight:hover {
+    background: #eee4dc;
+}
+
+
+.discount-note {
+    max-width: 1400px;
+    margin: -55px auto 0;
+    padding: 0 6% 70px;
+
+    font-size: 19px;
+    line-height: 1.6;
+    color: #8b837c;
+}
+
+
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .prices-hero {
+        padding: 120px 24px 70px;
+    }
+
+    .prices-hero h1 {
+        letter-spacing: -2px;
+    }
+
+
+    /* BENEFITS */
+
+    .prices-benefits {
+        grid-template-columns: 1fr;
+
+        padding: 60px 24px;
+    }
+
+    .price-benefit-featured {
+        grid-column: auto;
+    }
+
+    .price-benefit-card {
+        min-height: 260px;
+
+        padding: 30px;
+    }
+
+
+    /* LIST */
+
+    .price-list-section {
+        padding: 50px 24px 80px;
+    }
+
+    .price-list-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        margin-bottom: 35px;
+    }
+
+    .price-tabs {
+        width: 100%;
+    }
+
+    .price-tab {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .price-row {
+        min-height: 65px;
+
+        padding: 16px 12px;
+    }
+
+    .price-row:hover {
+        padding-left: 12px;
+    }
+
+    .price-row span,
+    .price-row strong {
+        font-size: 16px;
+    }
+
+    .discount-note {
+        margin: -35px auto 0;
+        padding: 0 24px 50px;
+        font-size: 16px;
+    }
+
+
+}
