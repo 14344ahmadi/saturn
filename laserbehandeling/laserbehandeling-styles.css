@@ -1,0 +1,1026 @@
+/* =========================================================
+   DEEL LICHAAM LASERBEHANDELING
+========================================================= */
+
+.laser-partial-page {
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+}
+
+
+/* Shared label */
+
+.laser-partial-label {
+    display: block;
+    margin-bottom: 18px;
+
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.laser-partial-hero {
+    position: relative;
+
+    width: 100%;
+    height: 720px;
+
+    overflow: hidden;
+}
+
+.laser-partial-hero-image,
+.laser-partial-hero-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.laser-partial-hero-image img {
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.laser-partial-hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(24, 19, 17, 0.72) 0%,
+        rgba(24, 19, 17, 0.38) 50%,
+        rgba(24, 19, 17, 0.05) 100%
+    );
+}
+
+.laser-partial-hero-overlay {
+    position: absolute;
+
+    top: 50%;
+    left: clamp(24px, 7vw, 120px);
+
+    z-index: 2;
+
+    max-width: 850px;
+
+    transform: translateY(-50%);
+
+    color: #fff;
+}
+
+.laser-partial-hero .laser-partial-label {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.laser-partial-hero h1 {
+    margin: 0 0 28px;
+
+    color: #fff;
+
+    font-size: clamp(58px, 7vw, 102px);
+    font-weight: 500;
+    line-height: 0.94;
+    letter-spacing: -4px;
+}
+
+.laser-partial-hero p {
+    max-width: 610px;
+
+    margin: 0;
+
+    font-size: 19px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.laser-partial-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: clamp(50px, 8vw, 140px);
+
+    max-width: 1450px;
+
+    margin: 0 auto;
+    padding: 130px clamp(24px, 7vw, 120px);
+}
+
+.laser-partial-intro h2 {
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size: clamp(42px, 4.6vw, 68px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.laser-partial-intro-text {
+    padding-top: 42px;
+}
+
+.laser-partial-intro-text p {
+    max-width: 630px;
+
+    margin: 0 0 18px;
+
+    color: #555;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.laser-partial-intro-text .laser-partial-lead {
+    color: #25211f;
+
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   BENEFITS
+========================================================= */
+
+.laser-partial-benefits {
+    padding: 110px clamp(24px, 7vw, 120px);
+
+    background: #f7f5f4;
+}
+
+.laser-partial-section-heading {
+    max-width: 850px;
+
+    margin-bottom: 65px;
+}
+
+.laser-partial-section-heading h2 {
+    margin: 0;
+
+    font-size: clamp(42px, 4.5vw, 66px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.laser-partial-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    max-width: 1500px;
+
+    border-top: 1px solid #d9d3cf;
+}
+
+.laser-partial-benefit {
+    min-height: 315px;
+
+    padding: 42px 42px 42px 0;
+
+    border-right: 1px solid #d9d3cf;
+}
+
+.laser-partial-benefit + .laser-partial-benefit {
+    padding-left: 42px;
+}
+
+.laser-partial-benefit:last-child {
+    border-right: 0;
+}
+
+.laser-partial-benefit-number {
+    display: block;
+
+    margin-bottom: 65px;
+
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.laser-partial-benefit h3 {
+    margin: 0 0 16px;
+
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.laser-partial-benefit p {
+    max-width: 360px;
+
+    margin: 0;
+
+    color: #555;
+
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   TREATMENT ZONES
+========================================================= */
+
+.laser-partial-zones {
+    padding: 125px clamp(24px, 7vw, 120px);
+}
+
+.laser-partial-zones-heading {
+    max-width: 850px;
+
+    margin-bottom: 70px;
+}
+
+.laser-partial-zones-heading h2 {
+    max-width: 820px;
+
+    margin: 0 0 25px;
+
+    font-size: clamp(42px, 4.5vw, 68px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.laser-partial-zones-heading p {
+    max-width: 620px;
+
+    margin: 0;
+
+    color: #605a56;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.laser-partial-zones-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    max-width: 1500px;
+
+    border-top: 1px solid #ded8d4;
+    border-left: 1px solid #ded8d4;
+}
+
+.laser-zone-card {
+    position: relative;
+
+    min-height: 260px;
+
+    padding: 38px;
+
+    border-right: 1px solid #ded8d4;
+    border-bottom: 1px solid #ded8d4;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.laser-zone-card:hover {
+    background: #f7f5f4;
+}
+
+.laser-zone-card > span {
+    display: block;
+
+    margin-bottom: 65px;
+
+    color: var(--hover-color);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.laser-zone-card h3 {
+    margin: 0 0 12px;
+
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.laser-zone-card p {
+    max-width: 330px;
+
+    margin: 0;
+
+    color: #67615d;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   EXPERIENCE / TREATMENT
+========================================================= */
+
+.laser-partial-experience {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+
+    min-height: 850px;
+
+    background: #fff;
+}
+
+.laser-partial-experience-image {
+    min-height: 850px;
+}
+
+.laser-partial-experience-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.laser-partial-experience-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 80px clamp(40px, 7vw, 110px);
+}
+
+.laser-partial-experience-content > h2 {
+    max-width: 630px;
+
+    margin: 0 0 24px;
+
+    font-size: clamp(42px, 4.5vw, 65px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.laser-partial-experience-content > p {
+    max-width: 580px;
+
+    margin: 0 0 30px;
+
+    color: #555;
+
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.laser-partial-step {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+
+    gap: 18px;
+
+    padding: 24px 0;
+
+    border-top: 1px solid #e4dfdc;
+}
+
+.laser-partial-step:last-child {
+    border-bottom: 1px solid #e4dfdc;
+}
+
+.laser-partial-step > span {
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.laser-partial-step h3 {
+    margin: 0 0 7px;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.laser-partial-step p {
+    max-width: 500px;
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SUITABLE
+========================================================= */
+
+.laser-partial-suitable {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+
+    gap: 90px;
+
+    padding: 120px clamp(24px, 7vw, 120px);
+
+    background: #f7f5f4;
+}
+
+.laser-partial-suitable-content {
+    max-width: 620px;
+}
+
+.laser-partial-suitable-content h2 {
+    margin: 0 0 25px;
+
+    font-size: clamp(42px, 4.5vw, 65px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.laser-partial-suitable-content p {
+    margin: 0;
+
+    color: #5d5854;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.laser-partial-suitable-list {
+    border-top: 1px solid #dfdad7;
+}
+
+.laser-partial-suitable-list div {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    padding: 24px 0;
+
+    border-bottom: 1px solid #dfdad7;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.laser-partial-suitable-list span {
+    flex-shrink: 0;
+
+    color: var(--hover-color);
+
+    font-size: 27px;
+    font-weight: 300;
+}
+
+
+/* dit is voor volledige lichaam only */
+/* =========================================================
+   VOLLEDIGE LICHAAM LASERBEHANDELING
+   Extra styles on top of shared laser styles
+========================================================= */
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.volledige-hero .laser-partial-hero-image img {
+    object-position: center 38%;
+}
+
+
+/* =========================================================
+   FULL BODY OVERVIEW
+========================================================= */
+
+.laser-full-overview {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+
+    gap: clamp(60px, 8vw, 140px);
+
+    padding: 125px clamp(24px, 7vw, 120px);
+
+    background: #fff;
+}
+
+.laser-full-overview-heading {
+    max-width: 620px;
+}
+
+.laser-full-overview-heading h2 {
+    margin: 0 0 25px;
+
+    font-size: clamp(42px, 4.5vw, 68px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.laser-full-overview-heading p {
+    max-width: 540px;
+
+    margin: 0;
+
+    color: #625d59;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* Right list */
+
+.laser-full-body-list {
+    border-top: 1px solid #ddd7d3;
+}
+
+.laser-full-body-item {
+    display: grid;
+    grid-template-columns: 65px 1fr;
+
+    gap: 25px;
+
+    padding: 30px 0;
+
+    border-bottom: 1px solid #ddd7d3;
+}
+
+.laser-full-body-number {
+    padding-top: 4px;
+
+    color: var(--hover-color);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.laser-full-body-item h3 {
+    margin: 0 0 9px;
+
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.laser-full-body-item p {
+    max-width: 480px;
+
+    margin: 0;
+
+    color: #68625e;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PERSONAL APPROACH
+========================================================= */
+
+.laser-full-personal {
+    padding: 125px clamp(24px, 7vw, 120px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f5f4 0%,
+            #eee8e3 100%
+        );
+}
+
+.laser-full-personal-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: clamp(50px, 8vw, 140px);
+
+    max-width: 1450px;
+
+    margin: 0 auto;
+}
+
+.laser-full-personal-copy h2 {
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size: clamp(42px, 4.6vw, 68px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.laser-full-personal-text {
+    padding-top: 40px;
+}
+
+.laser-full-personal-text p {
+    max-width: 620px;
+
+    margin: 0 0 18px;
+
+    color: #5e5955;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.laser-full-personal-text .laser-full-personal-lead {
+    color: #282421;
+
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   PARTIAL VS FULL CHOICE
+========================================================= */
+
+.laser-choice {
+    padding: 125px clamp(24px, 7vw, 120px);
+
+    background: #fff;
+}
+
+.laser-choice-heading {
+    max-width: 780px;
+
+    margin-bottom: 65px;
+}
+
+.laser-choice-heading h2 {
+    margin: 0;
+
+    font-size: clamp(42px, 4.6vw, 68px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.laser-choice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    max-width: 1300px;
+
+    border-top: 1px solid #dcd6d2;
+    border-left: 1px solid #dcd6d2;
+}
+
+.laser-choice-card {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 390px;
+
+    padding: 45px;
+
+    border-right: 1px solid #dcd6d2;
+    border-bottom: 1px solid #dcd6d2;
+
+    background: #fff;
+}
+
+.laser-choice-card > span {
+    display: block;
+
+    margin-bottom: 80px;
+
+    color: var(--hover-color);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.laser-choice-card h3 {
+    margin: 0 0 15px;
+
+    font-size: 31px;
+    font-weight: 600;
+}
+
+.laser-choice-card p {
+    max-width: 470px;
+
+    margin: 0 0 30px;
+
+    color: #65605c;
+
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.laser-choice-card a {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 12px;
+
+    width: fit-content;
+
+    margin-top: auto;
+
+    color: #282421;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+    border-bottom: 1px solid #b8ada6;
+
+    padding-bottom: 5px;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.laser-choice-card a:hover {
+    color: var(--hover-color);
+
+    border-bottom-color: var(--hover-color);
+}
+
+.laser-choice-card a span {
+    transition: transform 0.25s ease;
+}
+
+.laser-choice-card a:hover span {
+    transform: translateX(4px);
+}
+
+
+/* Featured full-body option */
+
+.laser-choice-card-featured {
+    background: #f7f5f4;
+}
+
+/* hier eindig voor volledige lichaam only */
+
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    /* HERO */
+
+    .laser-partial-hero {
+        height: 620px;
+    }
+
+    .laser-partial-hero-overlay {
+        top: auto;
+        right: 22px;
+        bottom: 50px;
+        left: 22px;
+
+        transform: none;
+    }
+
+    .laser-partial-hero::after {
+        background: linear-gradient(
+            0deg,
+            rgba(20, 17, 15, 0.82) 0%,
+            rgba(20, 17, 15, 0.30) 62%,
+            rgba(20, 17, 15, 0.06) 100%
+        );
+    }
+
+    .laser-partial-hero h1 {
+        font-size: 51px;
+        line-height: 0.98;
+        letter-spacing: -2px;
+    }
+
+    .laser-partial-hero p {
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+
+    /* INTRO */
+
+    .laser-partial-intro {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        padding: 80px 22px;
+    }
+
+    .laser-partial-intro-text {
+        padding-top: 0;
+    }
+
+    .laser-partial-intro h2 {
+        font-size: 43px;
+        letter-spacing: -1.5px;
+    }
+
+
+    /* BENEFITS */
+
+    .laser-partial-benefits {
+        padding: 80px 22px;
+    }
+
+    .laser-partial-benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .laser-partial-benefit,
+    .laser-partial-benefit + .laser-partial-benefit {
+        min-height: auto;
+
+        padding: 35px 0;
+
+        border-right: 0;
+        border-bottom: 1px solid #d9d3cf;
+    }
+
+    .laser-partial-benefit-number {
+        margin-bottom: 30px;
+    }
+
+
+    /* ZONES */
+
+    .laser-partial-zones {
+        padding: 80px 22px;
+    }
+
+    .laser-partial-zones-heading {
+        margin-bottom: 45px;
+    }
+
+    .laser-partial-zones-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .laser-zone-card {
+        min-height: auto;
+
+        padding: 32px 25px;
+    }
+
+    .laser-zone-card > span {
+        margin-bottom: 35px;
+    }
+
+
+    /* EXPERIENCE */
+
+    .laser-partial-experience {
+        grid-template-columns: 1fr;
+
+        min-height: 0;
+    }
+
+    .laser-partial-experience-image {
+        min-height: 430px;
+        height: 430px;
+    }
+
+    .laser-partial-experience-content {
+        padding: 70px 22px;
+    }
+
+    .laser-partial-experience-content > h2 {
+        font-size: 43px;
+    }
+
+
+    /* SUITABLE */
+
+    .laser-partial-suitable {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding: 80px 22px;
+    }
+
+    .laser-partial-suitable-content h2 {
+        font-size: 43px;
+    }
+
+    .laser-partial-suitable-list div {
+        font-size: 16px;
+    }
+
+
+    /* voor volledige lichaam only */
+        /* FULL BODY OVERVIEW */
+
+    .laser-full-overview {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        padding: 80px 22px;
+    }
+
+    .laser-full-overview-heading h2 {
+        font-size: 43px;
+        letter-spacing: -1.5px;
+    }
+
+    .laser-full-body-item {
+        grid-template-columns: 45px 1fr;
+
+        gap: 15px;
+
+        padding: 25px 0;
+    }
+
+    .laser-full-body-item h3 {
+        font-size: 20px;
+    }
+
+
+    /* PERSONAL */
+
+    .laser-full-personal {
+        padding: 80px 22px;
+    }
+
+    .laser-full-personal-inner {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .laser-full-personal-copy h2 {
+        font-size: 43px;
+        letter-spacing: -1.5px;
+    }
+
+    .laser-full-personal-text {
+        padding-top: 0;
+    }
+
+
+    /* CHOICE */
+
+    .laser-choice {
+        padding: 80px 22px;
+    }
+
+    .laser-choice-heading {
+        margin-bottom: 45px;
+    }
+
+    .laser-choice-heading h2 {
+        font-size: 43px;
+        letter-spacing: -1.5px;
+    }
+
+    .laser-choice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .laser-choice-card {
+        min-height: 330px;
+
+        padding: 32px 25px;
+    }
+
+    .laser-choice-card > span {
+        margin-bottom: 55px;
+    }
+
+    .laser-choice-card h3 {
+        font-size: 27px;
+    }
+    /* hier eindeicht voor volledige lichaam only */
+
+}
+
