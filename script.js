@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             showSlide(currentIndex);
 
-        }, 5000);
+        }, 8000);
 
 
         // Initial position
@@ -242,32 +242,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
         /* Hamburger open / close */
 
-        menuToggle.addEventListener(
-            "click",
-            function () {
+        menuToggle.addEventListener("click", function () {
 
-                menuToggle.classList.toggle("active");
-
+            const isOpen =
                 mobileMenu.classList.toggle("active");
 
-                document.body.classList.toggle(
-                    "menu-open"
-                );
+            menuToggle.classList.toggle(
+                "active",
+                isOpen
+            );
 
+            document.body.classList.toggle(
+                "menu-open",
+                isOpen
+            );
 
-                const isOpen =
-                    menuToggle.classList.contains(
-                        "active"
-                    );
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
 
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    isOpen ? "true" : "false"
-                );
-
-            }
-        );
+        });
 
 
         /* =================================================
@@ -294,69 +289,48 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            button.addEventListener(
-                "click",
-                function () {
+            button.addEventListener("click", function (event) {
 
-                    /*
-                    Optional:
-                    close other dropdowns first
-                    */
+                event.preventDefault();
 
-                    mobileDropdowns.forEach(
-                        function (otherDropdown) {
+                const willOpen =
+                    !dropdown.classList.contains("active");
 
-                            if (
-                                otherDropdown !== dropdown
-                            ) {
+                mobileDropdowns.forEach(function (otherDropdown) {
 
-                                otherDropdown.classList.remove(
-                                    "active"
-                                );
+                    otherDropdown.classList.remove("active");
 
-                                const otherArrow =
-                                    otherDropdown.querySelector(
-                                        ".mobile-arrow"
-                                    );
-
-                                if (otherArrow) {
-                                    otherArrow.textContent = "+";
-                                }
-
-                            }
-
-                        }
-                    );
-
-
-                    /* Open / close clicked dropdown */
-
-                    dropdown.classList.toggle(
-                        "active"
-                    );
-
-
-                    /* Change + to − */
-
-                    const arrow =
-                        button.querySelector(
+                    const otherArrow =
+                        otherDropdown.querySelector(
                             ".mobile-arrow"
                         );
 
-
-                    if (arrow) {
-
-                        arrow.textContent =
-                            dropdown.classList.contains(
-                                "active"
-                            )
-                                ? "×"
-                                : "+";
-
+                    if (otherArrow) {
+                        otherArrow.textContent = "+";
                     }
 
+                });
+
+                dropdown.classList.toggle(
+                    "active",
+                    willOpen
+                );
+
+                const arrow =
+                    button.querySelector(
+                        ".mobile-arrow"
+                    );
+
+                if (arrow) {
+                    arrow.textContent =
+                        willOpen ? "×" : "+";
                 }
-            );
+
+            });
+
+
+            
+
 
         });
 
@@ -431,5 +405,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
+
+    const header = document.querySelector(".site-header");
+
+    function updateHeader() {
+        if (window.scrollY > 40) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    }
+
+    window.addEventListener("scroll", updateHeader);
+
+    updateHeader();
 
 });

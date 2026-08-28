@@ -11,28 +11,66 @@
 
 body {
   margin: 0;
-  padding-top: 95px;
+  padding-top: 0;
   font-family: system-ui, sans-serif;
   color: var(--text-color);
 }
 
 .site-header {
-  position: fixed;
-  inset: 0 0 auto;
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 
-  display: flex;
-  align-items: center;
+    z-index: 1000;
 
-  padding: 10px clamp(24px, 6vw, 100px);
-  background: var(--header-bg);
-  box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+
+    padding: 15px clamp(24px, 6vw, 100px);
+
+    /* BEFORE SCROLL */
+    background: transparent;
+    color: #fff;
+    box-shadow: none;
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-.logo {
-  flex-shrink: 0;
-  margin-right: 36px;
+.site-header:hover {
+    background: #fff;
+    color: #111;
+
+    box-shadow: 0 1px 0 rgba(0,0,0,0.08);
 }
+
+
+.site-header.scrolled {
+    background: #fff;
+    color: #111;
+
+    box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+}
+
+
+
+.logo img {
+    display: block;
+    width: 200px;
+    height: auto;
+
+    filter: brightness(0) invert(1);
+    transition: filter 0.35s ease;
+}
+
+.site-header.scrolled .logo img,
+.site-header:hover .logo img {
+    filter: brightness(0);
+}
+
 
 .nav-left {
   margin-right: auto;
@@ -56,11 +94,23 @@ body {
 
 /* Main button */
 .primary-btn {
-  background: #f3eee8;
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* When the header becomes white */
+.site-header:hover .primary-btn,
+.site-header.scrolled .primary-btn {
+    background: #f3eee8;
+    color: #111;
+    border-color: #f3eee8;
 }
 
 .primary-btn:hover {
-  opacity: 0.85;
+    background: #fff !important;
+    color: #111 !important;
+    border-color: #d9d3cf !important;
 }
 
 .logo img {
@@ -163,7 +213,7 @@ body {
 .slider-container {
     position: relative;
     width: 100%;
-    height: 560px; /* 80% of 700px */
+    height: 720px;
     overflow: hidden;
 }
 
@@ -243,61 +293,256 @@ body {
 
 .motto {
     position: absolute;
-    left: 4%;
-    bottom: 7%;
 
-    /* Typography */
-    font-size: clamp(22px, 2.4vw, 38px);
-    font-weight: 500;
-    line-height: 1.15;
-    letter-spacing: -0.5px;
-
-    /* Saturn brand color */
-    color: var(--text-color);
-
-    /* Elegant light background */
-    background: rgba(255, 255, 255, 0.88);
-
-    /* Space around text */
-    padding: 14px 22px;
-
-    /* Softer premium shape */
-    border-radius: 4px;
-
-    /* Small Saturn-colored accent */
-    border-left: 4px solid var(--hover-color);
-
-    /* Make readable on every photo */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
-
-    /* Slight glass effect */
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    left: clamp(24px, 7vw, 120px);
+    top: 50%;
+    transform: translateY(-50%);
 
     z-index: 3;
 
-    max-width: 80%;
-    width: fit-content;
+    max-width: 700px;
+
+    color: #fff;
+
+    background: none;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
 }
 
-/* Main Content Section */
-.content-container {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
 
+/* Small text above heading */
+.motto-label {
+    display: block;
 
-    max-width: 100%;
+    margin-bottom: 18px;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: #fff;
 }
 
-.content-image {
-    flex: 1;
-    padding-right: 20px;
 
-    display: flex;
+/* Big heading */
+.motto h2 {
+    margin: 0 0 25px;
+
+    font-size: clamp(46px, 5.5vw, 82px);
+    font-weight: 500;
+    line-height: 1.03;
+    letter-spacing: -2px;
+
+    color: #fff;
 }
 
-.content-image img {
+
+/* Normal text below */
+.motto p {
+    max-width: 590px;
+    margin: 0;
+
+    font-size: 18px;
+    line-height: 1.7;
+
+    color: #fff;
+}
+
+.slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.42) 0%,
+        rgba(0, 0, 0, 0.15) 45%,
+        rgba(0, 0, 0, 0) 75%
+    );
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+.slide img {
+    position: relative;
+    z-index: 0;
+}
+
+.motto {
+    z-index: 2;
+}
+
+/* =========================================================
+   HOME INTRO
+========================================================= */
+
+.home-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: clamp(50px, 8vw, 140px);
+
+    max-width: 1450px;
+
+    margin: 0 auto;
+    padding: 130px clamp(24px, 7vw, 120px);
+}
+
+.home-label {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.home-intro h2 {
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size: clamp(42px, 4.6vw, 68px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.home-intro-text {
+    padding-top: 42px;
+}
+
+.home-intro-text p {
+    max-width: 630px;
+
+    margin: 0 0 18px;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.home-intro-text .home-lead {
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1.65;
+}
+
+/* =========================================================
+   WHY SATURN BEAUTY
+========================================================= */
+
+.clinic-benefits {
+    padding: 110px clamp(24px, 7vw, 120px);
+
+    background: #f7f5f4;
+}
+
+.clinic-section-heading {
+    max-width: 800px;
+
+    margin-bottom: 65px;
+}
+
+.clinic-label {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.clinic-section-heading h2 {
+    margin: 0;
+
+    font-size: clamp(42px, 4.5vw, 66px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.clinic-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid #d9d3cf;
+}
+
+.clinic-benefit {
+    min-height: 315px;
+
+    padding: 42px 42px 42px 0;
+
+    border-right: 1px solid #d9d3cf;
+}
+
+.clinic-benefit + .clinic-benefit {
+    padding-left: 42px;
+}
+
+.clinic-benefit:last-child {
+    border-right: 0;
+}
+
+.clinic-benefit-number {
+    display: block;
+
+    margin-bottom: 65px;
+
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.clinic-benefit h3 {
+    margin: 0 0 16px;
+
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.clinic-benefit p {
+    max-width: 350px;
+
+    margin: 0;
+
+    color: #555;
+
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+/* =========================================================
+   CLINIC EXPERIENCE
+========================================================= */
+
+.clinic-experience {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+
+    min-height: 900px;
+}
+
+
+/* IMAGE */
+
+.clinic-experience-image {
+    min-height: 900px;
+}
+
+.clinic-experience-image img {
     display: block;
 
     width: 100%;
@@ -306,78 +551,729 @@ body {
     object-fit: cover;
 }
 
-.content-text {
-    flex: 1;
-    padding-left: 20px;
-    padding-right: 80px;
-}
 
-.content-text h2 {
-    font-size: 2em;
-}
+/* CONTENT */
 
-.content-text p {
-    font-size: 1em;
-    line-height: 1.6;
-}
-
-.content-text ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-.content-text li {
-    font-size: 1em;
-    line-height: 1.5;
-    margin-bottom: 12px;
-}
-
-.button-container {
+.clinic-experience-content {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 80px clamp(40px, 7vw, 110px);
+}
+
+.clinic-experience-content .clinic-label {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.clinic-experience-content > h2 {
+    max-width: 650px;
+
+    margin: 0 0 24px;
+
+    font-size: clamp(42px, 4.5vw, 65px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.clinic-experience-content > p {
+    max-width: 580px;
+
+    margin: 0 0 30px;
+
+    color: #555;
+
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+
+/* STEPS */
+
+.clinic-step {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+
+    gap: 18px;
+
+    padding: 24px 0;
+
+    border-top: 1px solid #e4dfdc;
+}
+
+.clinic-step:last-of-type {
+    border-bottom: 1px solid #e4dfdc;
+}
+
+.clinic-step > span {
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.clinic-step h3 {
+    margin: 0 0 7px;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.clinic-step p {
+    max-width: 500px;
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* BUTTONS */
+
+.clinic-experience-buttons {
+    display: flex;
+    flex-wrap: wrap;
 
     gap: 12px;
 
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 35px;
 }
 
-.button-container .action-btn {
-    min-width: 180px;
+.clinic-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 175px;
+
     padding: 14px 24px;
 
-    font-size: 16px;
+    border: 1px solid #d9d3cf;
+    border-radius: 6px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* AFSPRAAK MAKEN */
+
+.clinic-btn-primary {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+}
+
+.clinic-btn-primary:hover {
+    background: #fff;
+    color: #111;
+}
+
+
+/* GRATIS INTAKE */
+
+.clinic-btn-outline {
+    background: #fff;
+    color: #111;
+}
+
+.clinic-btn-outline:hover {
+    background: #f3eee8;
+    border-color: #f3eee8;
+}
+
+
+/* =========================================================
+   TREATMENTS OVERVIEW
+========================================================= */
+
+.treatments-overview {
+    padding: 120px clamp(24px, 7vw, 120px);
+
+    background: #f7f5f4;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.treatments-overview-heading {
+    max-width: 850px;
+
+    margin-bottom: 70px;
+}
+
+.treatments-overview-label {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.treatments-overview-heading h2 {
+    margin: 0 0 25px;
+
+    font-size: clamp(44px, 5vw, 72px);
+    font-weight: 500;
+    line-height: 1.03;
+    letter-spacing: -2px;
+}
+
+.treatments-overview-heading p {
+    max-width: 620px;
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   HIDE RADIO INPUTS
+========================================================= */
+
+.treatment-tab-input {
+    position: absolute;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TAB BUTTONS
+========================================================= */
+
+.treatment-tab-buttons {
+    display: flex;
+
+    gap: 35px;
+
+    margin-bottom: 55px;
+
+    border-bottom: 1px solid #ddd7d3;
+}
+
+.treatment-tab-buttons label {
+    position: relative;
+
+    padding: 0 0 18px;
+
+    color: #777;
+
+    font-size: 18px;
     font-weight: 500;
 
     cursor: pointer;
-    color: var(--text-color);
+
+    transition: color 0.25s ease;
 }
 
-/* Balkje Section */
-.balkje {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    padding: 15px 0;
-    border-top: 1px solid var(--line-color); 
-    border-bottom: 1px solid var(--line-color); 
-    overflow-x: auto; 
+.treatment-tab-buttons label:hover {
+    color: #111;
 }
 
-.balkje-item {
-    display: flex;
-    align-items: center;
+
+/* underline */
+
+.treatment-tab-buttons label::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 2px;
+
+    background: #111;
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* ACTIVE TAB */
+
+#tab-face:checked
+~ .treatment-tab-buttons
+label[for="tab-face"],
+
+#tab-laser:checked
+~ .treatment-tab-buttons
+label[for="tab-laser"] {
+    color: #111;
+}
+
+
+#tab-face:checked
+~ .treatment-tab-buttons
+label[for="tab-face"]::after,
+
+#tab-laser:checked
+~ .treatment-tab-buttons
+label[for="tab-laser"]::after {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   TAB CONTENT
+========================================================= */
+
+.treatment-tab-content {
+    display: none;
+}
+
+
+/* FACE ACTIVE */
+
+#tab-face:checked
+~ .treatment-face-content {
+    display: grid;
+}
+
+
+/* LASER ACTIVE */
+
+#tab-laser:checked
+~ .treatment-laser-content {
+    display: grid;
+}
+
+
+/* layout */
+
+.treatment-tab-content {
+    grid-template-columns: .8fr 1.2fr;
+
+    gap: clamp(50px, 8vw, 130px);
+
+    animation: treatmentFade 0.35s ease;
+}
+
+
+@keyframes treatmentFade {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   LEFT INTRO
+========================================================= */
+
+.treatment-tab-intro > span {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: var(--hover-color);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.treatment-tab-intro h3 {
+    max-width: 500px;
+
+    margin: 0 0 22px;
+
+    font-size: clamp(34px, 3.6vw, 54px);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+}
+
+.treatment-tab-intro p {
+    max-width: 500px;
+
+    margin: 0;
+
+    color: #666;
+
     font-size: 16px;
-    font-weight: bold;
+    line-height: 1.75;
 }
 
-.balkje-item .icon {
-    margin-right: 8px;
+
+/* =========================================================
+   TREATMENT LIST
+========================================================= */
+
+.treatment-list {
+    border-top: 1px solid #ddd7d3;
 }
+
+.treatment-list-item {
+    display: grid;
+
+    grid-template-columns: 45px 1fr 30px;
+
+    gap: 20px;
+
+    align-items: start;
+
+    padding: 25px 0;
+
+    color: #111;
+
+    border-bottom: 1px solid #ddd7d3;
+
+    text-decoration: none;
+
+    transition:
+        padding-left 0.25s ease,
+        background 0.25s ease;
+}
+
+.treatment-list-item:hover {
+    padding-left: 10px;
+}
+
+
+/* NUMBER */
+
+.treatment-number {
+    padding-top: 5px;
+
+    color: var(--hover-color);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* TITLE */
+
+.treatment-list-item h4 {
+    margin: 0 0 7px;
+
+    font-size: 21px;
+    font-weight: 600;
+}
+
+
+/* DESCRIPTION */
+
+.treatment-list-item p {
+    max-width: 580px;
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+
+/* ARROW */
+
+.treatment-arrow {
+    padding-top: 2px;
+
+    font-size: 22px;
+
+    transition: transform 0.25s ease;
+}
+
+.treatment-list-item:hover .treatment-arrow {
+    transform: translateX(5px);
+}
+
+
+
+
+
+/* =========================================================
+   SCIENCE & BEAUTY
+========================================================= */
+
+.home-science {
+    padding: 120px clamp(24px, 7vw, 120px);
+
+    background: #f7f5f4;
+}
+
+.home-science-inner {
+    max-width: 1450px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.home-science-heading {
+    max-width: 850px;
+
+    margin-bottom: 65px;
+}
+
+.home-science-label {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.home-science-heading h2 {
+    max-width: 800px;
+
+    margin: 0 0 25px;
+
+    font-size: clamp(44px, 5vw, 72px);
+    font-weight: 500;
+    line-height: 1.03;
+    letter-spacing: -2px;
+}
+
+.home-science-heading > p {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.home-science-card {
+    padding: 0 50px 45px;
+
+    background: #fff;
+
+    border: 1px solid #e2dcd7;
+}
+
+
+/* =========================================
+   TOP LINE
+========================================= */
+
+.home-science-top {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 28px 0;
+
+    color: var(--hover-color);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.home-science-top div {
+    height: 1px;
+
+    background: #ddd7d2;
+}
+
+
+/* =========================================
+   ROW
+========================================= */
+
+.home-science-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+
+    gap: 30px;
+
+    padding: 48px 0;
+
+    border-bottom: 1px solid #ddd7d2;
+}
+
+
+/* ICON */
+
+.home-science-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 72px;
+    height: 72px;
+
+    border-radius: 50%;
+
+    background: #eee7e0;
+
+    color: var(--hover-color);
+
+    font-size: 22px;
+}
+
+
+/* TEXT */
+
+.home-science-row-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--hover-color);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.home-science-copy h3 {
+    margin: 0 0 13px;
+
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.home-science-copy p {
+    max-width: 760px;
+
+    margin: 0;
+
+    color: #5c5753;
+
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+
+/* =========================================
+   BOTTOM
+========================================= */
+
+.home-science-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding-top: 38px;
+}
+
+.home-science-bottom > div {
+    max-width: 650px;
+}
+
+.home-science-bottom strong {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.home-science-bottom > div > span {
+    display: block;
+
+    color: #716b66;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* LINK */
+
+.home-science-bottom > a {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding-bottom: 5px;
+
+    color: #222;
+
+    border-bottom: 1px solid #aaa09a;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        gap 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.home-science-bottom > a:hover {
+    gap: 18px;
+
+    border-color: #222;
+}
+
+
+
 
 /* =========================
    TREATMENTS SECTION
@@ -739,8 +1635,8 @@ body {
 ========================= */
 
 .site-footer {
-    background: #fff;
-    color: #000;
+    background: #000;
+    color: #fff;
 
     padding: 60px clamp(24px, 7vw, 120px) 30px;
 }
@@ -749,7 +1645,7 @@ body {
 /* All footer links */
 
 .site-footer a {
-    color: #000;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -808,7 +1704,7 @@ body {
     width: 50px;
     height: 50px;
 
-    background: #f1eeec;
+    background: #f3eee8;
     color: #000;
 
     clip-path: polygon(
@@ -840,7 +1736,7 @@ body {
     justify-content: space-between;
     gap: 40px;
 
-    background: #f7f5f4;
+    background: #151515;
 }
 
 .footer-cta h2 {
@@ -849,12 +1745,12 @@ body {
     font-size: clamp(36px, 4vw, 62px);
     line-height: 1.1;
 
-    color: #000;
+    color: #fff;
 }
 
 .footer-cta p {
     margin: 0;
-
+    color: #f3eee8;
     font-size: 18px;
     line-height: 1.6;
 }
@@ -869,22 +1765,20 @@ body {
     align-items: center;
     justify-content: center;
 
-    min-width: 220px;
-
+    min-width: 200px;
     gap: 12px;
 
-    padding: 17px 32px;
+    padding: 15px 28px;
 
-    background: #f3eee8;
+    /* Cleaner on black footer */
+    background: transparent;
+    color: #f3eee8 !important;
+    border: 1px solid #f3eee8;
+    border-radius: 6px;
 
-    /* override footer white link */
-    color: #000;
-
-    border: 2px solid #f3eee8;
-    border-radius: 50px;
-
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
+    text-decoration: none;
 
     transition:
         background 0.25s ease,
@@ -893,9 +1787,8 @@ body {
 }
 
 .footer-intake-btn:hover {
-    background: transparent;
-
-    color: #fff !important;
+    background: #f3eee8;
+    color: #000 !important;
 
     transform: translateY(-2px);
 }
@@ -919,7 +1812,7 @@ body {
 .footer-column h3 {
     margin: 0 0 22px;
 
-    color: #000;
+    color: #fff;
 
     font-size: 22px;
     font-weight: 600;
@@ -1025,8 +1918,7 @@ body {
     margin: 60px auto 0;
     padding-top: 25px;
 
-    border-top: 1px solid #ddd;
-
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1046,7 +1938,8 @@ body {
 
 /* for mobile toggle hidden in desktop */
 .menu-toggle,
-.mobile-menu {
+.mobile-menu,
+.mobile-header-intake {
     display: none;
 }
 
@@ -1091,7 +1984,8 @@ body {
     position: relative;
 
     width: 100%;
-    height: 650px;
+    height: 720px;
+
 
     overflow: hidden;
 }
@@ -1165,119 +2059,7 @@ body {
     line-height: 1.7;
 }
 
-/* =========================================================
-   INTRO
-========================================================= */
 
-.about-intro {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    height: 950px;
-    min-height: 0;
-}
-
-.about-intro-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 35px clamp(40px, 7vw, 120px);
-}
-
-.about-intro-text h2 {
-    max-width: 650px;
-
-    margin: 0 0 22px;
-
-    font-size: clamp(38px, 4vw, 60px);
-    font-weight: 500;
-    line-height: 1.08;
-    letter-spacing: -1.5px;
-}
-
-.about-intro-text p {
-    max-width: 650px;
-
-    margin: 0 0 14px;
-
-    font-size: 17px;
-    line-height: 1.7;
-}
-
-.about-intro-image {
-    height: 950px;
-    min-height: 0;
-    overflow: hidden;
-}
-
-.about-intro-image img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.about-buttons {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-    margin-top: 20px;
-}
-
-.about-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-width: 175px;
-
-    padding: 14px 24px;
-
-    border: 1px solid var(--hover-color);
-    border-radius: 6px;
-
-    font-size: 16px;
-    font-weight: 600;
-
-    text-decoration: none;
-
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
-}
-
-.about-btn-primary {
-    background: var(--hover-color);
-    color: #fff;
-}
-
-.about-btn-primary:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-}
-
-.about-btn-outline {
-    background: transparent;
-    color: var(--hover-color);
-}
-
-.about-btn-outline:hover {
-    background: var(--hover-color);
-    color: #fff;
-
-    transform: translateY(-2px);
-}
 
 
 /* =========================================================
@@ -1372,12 +2154,16 @@ body {
 
 .about-clinic {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 0.9fr 1.1fr;
 
     min-height: 720px;
 }
 
+/* PHOTO → RIGHT */
 .about-clinic-image {
+    grid-column: 2;
+    grid-row: 1;
+
     min-height: 720px;
 }
 
@@ -1390,7 +2176,11 @@ body {
     object-fit: cover;
 }
 
+/* TEXT → LEFT */
 .about-clinic-content {
+    grid-column: 1;
+    grid-row: 1;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1496,6 +2286,25 @@ body {
    CONTACT PAGE
 ========================================================= */
 
+
+.contact-page-body .site-header {
+    background: #fff;
+    color: #111;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Black logo on contact page */
+.contact-page-body .site-header .logo img {
+    filter: brightness(0);
+}
+
+/* Normal appointment button */
+.contact-page-body .site-header .primary-btn {
+    background: #f3eee8;
+    color: #111;
+    border-color: #f3eee8;
+}
+
 .contact-page {
     width: 100%;
     overflow: hidden;
@@ -1523,7 +2332,7 @@ body {
     display: flex;
     align-items: center;
 
-    min-height: 520px;
+    min-height: 720px;
 
     padding: 80px clamp(24px, 7vw, 120px);
 
@@ -1637,17 +2446,14 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    /* space between text and arrow */
     gap: 12px;
 
     padding: 17px 32px;
 
-    border: 2px solid var(--hover-color);
-    border-radius: 50px;
-
-    background: var(--hover-color);
-    color: #fff;
+    background: #f3eee8;
+    color: #111;
+    border: 1px solid #f3eee8;
+    border-radius: 6px;
 
     font-family: inherit;
     font-size: 17px;
@@ -1658,17 +2464,322 @@ body {
     transition:
         background 0.25s ease,
         color 0.25s ease,
+        border-color 0.25s ease,
         transform 0.25s ease;
 }
 
 .contact-form-button:hover {
-    background: transparent;
-    color: var(--hover-color);
+    background: #fff;
+    color: #111;
+    border-color: #d9d3cf;
 
     transform: translateY(-2px);
 }
 
 /* eindig contact */
+
+
+/* begin privacy verklaring */
+/* =========================================================
+   PRIVACY PAGE
+========================================================= */
+
+.privacy-page {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.privacy-hero {
+    display: flex;
+    align-items: center;
+
+    min-height: 570px;
+
+    padding:
+        160px
+        clamp(24px, 7vw, 120px)
+        90px;
+
+    background: #f7f5f4;
+}
+
+.privacy-hero-content {
+    width: 100%;
+    max-width: 1050px;
+}
+
+.privacy-label {
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.privacy-hero h1 {
+    max-width: 900px;
+
+    margin: 0 0 35px;
+
+    font-size: clamp(55px, 7vw, 100px);
+    font-weight: 500;
+    line-height: .98;
+    letter-spacing: -3px;
+}
+
+.privacy-hero p {
+    max-width: 680px;
+
+    margin: 0;
+
+    color: #444;
+
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.privacy-content {
+    padding:
+        110px
+        clamp(24px, 7vw, 120px)
+        130px;
+
+    background: #fff;
+}
+
+.privacy-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.privacy-intro {
+    max-width: 850px;
+
+    margin-bottom: 100px;
+}
+
+.privacy-intro h2 {
+    margin: 0 0 28px;
+
+    font-size: clamp(38px, 4.4vw, 64px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.privacy-intro p {
+    max-width: 720px;
+
+    margin: 0 0 18px;
+
+    color: #555;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.privacy-intro .privacy-version {
+    margin-top: 30px;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   PRIVACY ROW
+========================================================= */
+
+.privacy-section {
+    display: grid;
+
+    grid-template-columns: 100px minmax(0, 760px);
+
+    gap: 40px;
+
+    padding: 65px 0;
+
+    border-top: 1px solid #ddd7d3;
+}
+
+.privacy-section:last-child {
+    border-bottom: 1px solid #ddd7d3;
+}
+
+
+/* NUMBER */
+
+.privacy-number {
+    padding-top: 7px;
+
+    color: var(--hover-color);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+/* TEXT */
+
+.privacy-section-copy h2 {
+    margin: 0 0 25px;
+
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -1px;
+}
+
+.privacy-section-copy p {
+    margin: 0 0 20px;
+
+    color: #555;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.privacy-section-copy ul {
+    margin: 25px 0 30px;
+    padding: 0;
+
+    list-style: none;
+}
+
+.privacy-section-copy li {
+    position: relative;
+
+    padding:
+        13px
+        0
+        13px
+        27px;
+
+    color: #444;
+
+    border-bottom: 1px solid #eeeae7;
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.privacy-section-copy li:first-child {
+    border-top: 1px solid #eeeae7;
+}
+
+.privacy-section-copy li::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+
+    color: var(--hover-color);
+}
+
+
+/* =========================================================
+   LINK
+========================================================= */
+
+.privacy-link {
+    display: inline-flex;
+    align-items: center;
+
+    margin-top: 8px;
+    padding-bottom: 5px;
+
+    color: #222;
+
+    border-bottom: 1px solid #aaa09a;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        border-color .25s ease,
+        gap .25s ease;
+}
+
+.privacy-link:hover {
+    border-color: #222;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.privacy-contact {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    margin-top: 35px;
+
+    border-top: 1px solid #ddd7d3;
+    border-bottom: 1px solid #ddd7d3;
+}
+
+.privacy-contact > div {
+    padding: 25px 30px 25px 0;
+}
+
+.privacy-contact > div + div {
+    padding-left: 30px;
+
+    border-left: 1px solid #ddd7d3;
+}
+
+.privacy-contact span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #888;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.privacy-contact a {
+    color: #222;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.privacy-contact a:hover {
+    color: var(--hover-color);
+}
+
+/*eind privacy verklaring */
 
 /* =========================================================
    MOBILE RESPONSIVE CSS
@@ -1704,31 +2815,7 @@ body {
     }
 
     /* TOGGLE RIGHT */
-    .menu-toggle {
-        display: flex !important;
-
-        position: absolute !important;
-        right: 20px !important;
-        left: auto !important;
-        top: 50% !important;
-
-        width: 40px;
-        height: 40px;
-
-        padding: 0;
-        margin: 0;
-
-        align-items: center;
-        justify-content: center;
-
-        transform: translateY(-50%) !important;
-
-        background: transparent;
-        border: 0;
-
-        cursor: pointer;
-        z-index: 1200;
-    }
+    
 
 
 
@@ -1742,15 +2829,14 @@ body {
 
     /* Hide desktop navigation */
 
-    .nav-left,
-    .nav-right {
-        display: none;
-    }
-
 
     /* =========================================
     HAMBURGER BUTTON
     ========================================= */
+        .nav-left,
+    .nav-right {
+        display: none;
+    }
 
     .mobile-header-intake {
         display: inline-flex;
@@ -1776,23 +2862,32 @@ body {
     }
 
     .menu-toggle {
-        position: absolute !important;
-        right: 20px !important;
-        left: auto !important;
-        top: 50% !important;
+        display: flex;
 
-        margin: 0 !important;
-        transform: translateY(-50%) !important;
+        position: absolute;
+        right: 20px;
+        top: 50%;
 
-        z-index: 1100;
+        width: 40px;
+        height: 40px;
+
+        padding: 0;
+        margin: 0;
+
+        align-items: center;
+        justify-content: center;
+
+        transform: translateY(-50%);
+
+        background: transparent;
+        border: 0;
+
+        cursor: pointer;
+        z-index: 1200;
     }
-
-
-    /* Middle hamburger line */
 
     .hamburger {
         position: relative;
-
         display: block;
 
         width: 27px;
@@ -1802,9 +2897,6 @@ body {
 
         transition: background 0.3s ease;
     }
-
-
-    /* Top + bottom lines */
 
     .hamburger::before,
     .hamburger::after {
@@ -1831,11 +2923,6 @@ body {
         top: 8px;
     }
 
-
-    /* =========================================
-    HAMBURGER OPEN ANIMATION
-    ========================================= */
-
     .menu-toggle.active .hamburger {
         background: transparent;
     }
@@ -1850,21 +2937,15 @@ body {
         transform: rotate(-45deg);
     }
 
-
-    /* =========================================
-    MOBILE MENU
-    ========================================= */
-
     .mobile-menu {
-        position: fixed;
+        display: block;
 
+        position: fixed;
         top: 75px;
         left: 0;
 
-        display: block;
-
         width: 100%;
-        height: calc(100vh - 75px);
+        height: calc(100dvh - 75px);
 
         padding: 20px;
 
@@ -1873,24 +2954,28 @@ body {
         overflow-y: auto;
 
         transform: translateX(100%);
-
         visibility: hidden;
+        pointer-events: none;
 
         transition:
             transform 0.35s ease,
             visibility 0.35s ease;
 
-        z-index: 1001;
+        z-index: 1150;
     }
-
-
-    /* Open mobile menu */
 
     .mobile-menu.active {
         transform: translateX(0);
         visibility: visible;
+        pointer-events: auto;
     }
 
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+
+    
 
     /* =========================================
     MOBILE MENU LIST
@@ -2090,22 +3175,34 @@ body {
        HEADER
     ========================= */
 
-    .site-header {
+    .site-header,
+    .site-header:hover,
+    .site-header.scrolled {
         height: 75px;
         padding: 8px 20px;
 
         display: flex;
         align-items: center;
         justify-content: center;
+
+        background: #fff !important;
+        color: #111 !important;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
     }
 
     .logo {
         margin: 0;
     }
 
-    .logo img {
+    .logo img,
+    .site-header:hover .logo img,
+    .site-header.scrolled .logo img {
         height: 58px;
         width: auto;
+
+        /* Always black on mobile */
+        filter: brightness(0) !important;
+        transition: none;
     }
 
     .nav-left,
@@ -2120,7 +3217,7 @@ body {
 
     .slider-container {
         width: 100%;
-        height: 430px;
+        height: 620px;
         position: relative;
         overflow: hidden;
     }
@@ -2153,19 +3250,18 @@ body {
     .motto {
         position: absolute;
 
-        left: 20px;
-        right: 20px;
-        bottom: 25px;
+        top: auto;
+        right: 22px;
+        bottom: 50px;
+        left: 22px;
 
-        max-width: calc(100% - 40px);
+        transform: none;
 
-        padding: 12px 15px;
+        max-width: none;
 
-        font-size: 20px;
-        line-height: 1.3;
-        font-weight: 500;
+        padding: 0;
 
-        color: var(--text-color);
+        color: #fff;
 
         z-index: 3;
     }
@@ -2217,135 +3313,379 @@ body {
         border-color: #fff;
     }
 
+    
+
+    /* =========================================================
+   HOME PAGE - MISSING MOBILE SECTIONS
+    ========================================================= */
+
 
     /* =========================
-       CONTENT SECTIONS
+    HOME INTRO
     ========================= */
 
-    .content-container {
-        display: flex;
-        flex-direction: column;
+    .home-intro {
+        grid-template-columns: 1fr;
+        gap: 35px;
 
-        width: 100%;
-
-        padding: 0;
-        margin: 0;
+        padding: 65px 22px;
     }
 
-    .content-image {
-        width: 100%;
-        padding: 0;
-        margin: 0;
+    .home-intro h2 {
+        max-width: 100%;
+
+        font-size: 36px;
+        line-height: 1.08;
+        letter-spacing: -1px;
     }
 
-    .content-image img {
-        display: block;
-
-        width: 100%;
-        height: 320px;
-
-        object-fit: cover;
+    .home-intro-text {
+        padding-top: 0;
     }
 
-    .content-text {
-        width: 100%;
-
-        padding: 35px 22px 0px;
-        margin: 0;
-    }
-
-    .content-text h2 {
-        margin: 0 0 18px;
-
-        font-size: 28px;
-        line-height: 1.2;
-    }
-
-    .content-text p {
-        margin: 0 0 20px;
+    .home-intro-text p {
+        max-width: 100%;
 
         font-size: 15px;
         line-height: 1.7;
     }
 
-    .content-text ul {
-        padding-left: 20px;
-        margin: 0 0 25px;
-    }
-
-    .content-text li {
-        margin-bottom: 12px;
-
-        font-size: 15px;
+    .home-intro-text .home-lead {
+        font-size: 18px;
         line-height: 1.6;
     }
 
 
     /* =========================
-       CONTENT BUTTONS
+    WHY SATURN BEAUTY
     ========================= */
 
-    .button-container {
-        display: flex;
-        flex-direction: column;
-
-        gap: 10px;
-
-        width: 100%;
+    .clinic-benefits {
+        padding: 65px 22px;
     }
 
-    .button-container .action-btn {
-        width: 100%;
+    .clinic-section-heading {
+        margin-bottom: 40px;
+    }
 
-        padding: 13px 15px;
+    .clinic-section-heading h2 {
+        font-size: 36px;
+        line-height: 1.08;
+        letter-spacing: -1px;
+    }
+
+    .clinic-benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .clinic-benefit,
+    .clinic-benefit + .clinic-benefit {
+        min-height: 0;
+
+        padding: 35px 0;
+
+        border-right: 0;
+        border-bottom: 1px solid #d9d3cf;
+    }
+
+    .clinic-benefit:last-child {
+        border-bottom: 0;
+    }
+
+    .clinic-benefit-number {
+        margin-bottom: 25px;
+    }
+
+    .clinic-benefit h3 {
+        font-size: 23px;
+    }
+
+    .clinic-benefit p {
+        max-width: 100%;
 
         font-size: 15px;
-
-        text-align: center;
-        color: #f3eee8;
+        line-height: 1.7;
     }
 
 
     /* =========================
-       BENEFITS BAR
-       .balkje
+    CLINIC EXPERIENCE
     ========================= */
 
-    .balkje {
-        display: flex;
+    .clinic-experience {
+        grid-template-columns: 1fr;
 
-        justify-content: flex-start;
-        align-items: center;
+        min-height: 0;
+    }
 
-        gap: 25px;
+    .clinic-experience-image {
+        min-height: 0;
+        height: 420px;
+    }
+
+    .clinic-experience-image img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+    }
+
+    .clinic-experience-content {
+        padding: 55px 22px;
+    }
+
+    .clinic-experience-content > h2 {
+        max-width: 100%;
+
+        font-size: 36px;
+        line-height: 1.08;
+        letter-spacing: -1px;
+    }
+
+    .clinic-experience-content > p {
+        max-width: 100%;
+
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .clinic-step {
+        grid-template-columns: 35px 1fr;
+        gap: 12px;
+
+        padding: 22px 0;
+    }
+
+    .clinic-step h3 {
+        font-size: 17px;
+    }
+
+    .clinic-step p {
+        max-width: 100%;
+
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .clinic-experience-buttons {
+        flex-direction: column;
 
         width: 100%;
 
-        padding: 10px 20px;
+        margin-top: 30px;
+    }
+
+    .clinic-btn {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+    /* =========================
+    TREATMENTS OVERVIEW
+    ========================= */
+
+    .treatments-overview {
+        padding: 65px 22px;
+    }
+
+    .treatments-overview-heading {
+        margin-bottom: 40px;
+    }
+
+    .treatments-overview-heading h2 {
+        font-size: 36px;
+        line-height: 1.08;
+        letter-spacing: -1px;
+    }
+
+    .treatments-overview-heading p {
+        max-width: 100%;
+
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    /* Treatment tabs */
+
+    .treatment-tab-buttons {
+        gap: 22px;
+
+        margin-bottom: 40px;
 
         overflow-x: auto;
-        overflow-y: hidden;
-
-        -webkit-overflow-scrolling: touch;
-
-        scrollbar-width: none;
     }
 
-    .balkje::-webkit-scrollbar {
-        display: none;
+    .treatment-tab-buttons label {
+        flex-shrink: 0;
+
+        padding-bottom: 14px;
+
+        font-size: 16px;
     }
 
-    .balkje-item {
-        flex: 0 0 auto;
+
+    /* Tab content */
+
+    .treatment-tab-content {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .treatment-tab-intro h3 {
+        max-width: 100%;
+
+        font-size: 32px;
+        line-height: 1.1;
+        letter-spacing: -1px;
+    }
+
+    .treatment-tab-intro p {
+        max-width: 100%;
+
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    /* Treatment list */
+
+    .treatment-list-item {
+        grid-template-columns: 30px 1fr 22px;
+        gap: 12px;
+
+        padding: 22px 0;
+    }
+
+    .treatment-list-item:hover {
+        padding-left: 0;
+    }
+
+    .treatment-number {
+        padding-top: 4px;
+    }
+
+    .treatment-list-item h4 {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .treatment-list-item p {
+        max-width: 100%;
+
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .treatment-arrow {
+        font-size: 19px;
+    }
+
+
+    /* =========================
+    SCIENCE & BEAUTY
+    ========================= */
+
+    .home-science {
+        padding: 65px 22px;
+    }
+
+    .home-science-heading {
+        margin-bottom: 40px;
+    }
+
+    .home-science-heading h2 {
+        max-width: 100%;
+
+        font-size: 36px;
+        line-height: 1.08;
+        letter-spacing: -1px;
+    }
+
+    .home-science-heading > p {
+        max-width: 100%;
+
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    /* Science card */
+
+    .home-science-card {
+        padding: 0 22px 30px;
+    }
+
+    .home-science-top {
+        gap: 12px;
+
+        padding: 22px 0;
+
+        font-size: 10px;
+    }
+
+
+    /* Science rows */
+    
+
+    .home-science-row {
+        grid-template-columns: 58px 1fr;
+        gap: 16px;
+        align-items: start;
+
+        padding: 35px 0;
+    }
+
+    .home-science-icon {
+        width: 48px;
+        height: 48px;
+
+        font-size: 19px;
+    }
+
+    .home-science-copy h3 {
+        font-size: 22px;
+        line-height: 1.3;
+    }
+
+    .home-science-copy p {
+        max-width: 100%;
 
         font-size: 14px;
-
-        white-space: nowrap;
+        line-height: 1.7;
     }
 
-    .balkje-item .icon {
-        margin-right: 6px;
+
+    /* Science bottom */
+
+    .home-science-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 25px;
+
+        padding-top: 30px;
     }
+
+    .home-science-bottom > div {
+        max-width: 100%;
+    }
+
+    .home-science-bottom strong {
+        font-size: 17px;
+    }
+
+    .home-science-bottom > div > span {
+        font-size: 14px;
+    }
+
+    .home-science-bottom > a {
+        align-self: flex-start;
+    }
+
+    
 
 
     /* =========================
@@ -2701,44 +4041,6 @@ body {
     }
 
 
-    /* INTRO */
-
-    .about-intro {
-        grid-template-columns: 1fr;
-
-        height: auto;
-        min-height: 0;
-    }
-
-    .about-intro-text {
-        order: 2;
-
-        padding: 55px 22px;
-    }
-
-    .about-intro-image {
-        order: 1;
-
-        min-height: 420px;
-        height: 420px;
-    }
-
-    .about-intro-text h2 {
-        font-size: 35px;
-    }
-
-    .about-intro-text p {
-        font-size: 15px;
-        line-height: 1.7;
-    }
-
-    .about-buttons {
-        flex-direction: column;
-    }
-
-    .about-btn {
-        width: 100%;
-    }
 
 
     /* VALUES */
@@ -2784,28 +4086,103 @@ body {
 
     /* CLINIC */
 
+    /* =========================================
+   ABOUT PAGE - CLINIC MOBILE
+========================================= */
+
     .about-clinic {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+
+        background: #fff;
     }
 
+    /* Image first */
     .about-clinic-image {
-        min-height: 420px;
-        height: 420px;
+        width: 100%;
+        height: 360px;
+        min-height: 0;
+
+        /* Reset desktop grid */
+        grid-column: auto;
+        grid-row: auto;
+
+        overflow: hidden;
     }
 
+    .about-clinic-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+
+        display: block;
+    }
+
+    /* Content underneath */
     .about-clinic-content {
-        padding: 55px 22px;
+        width: 100%;
+
+        /* Reset desktop grid */
+        grid-column: auto;
+        grid-row: auto;
+
+        padding: 48px 22px 55px;
+    }
+
+    .about-clinic-content .about-label {
+        margin-bottom: 12px;
+
+        font-size: 11px;
+        letter-spacing: 1.8px;
     }
 
     .about-clinic-content h2 {
-        font-size: 35px;
+        margin: 0 0 20px;
+
+        font-size: 34px;
+        line-height: 1.08;
+        letter-spacing: -1px;
     }
 
     .about-clinic-content > p {
+        margin: 0 0 32px;
+
         font-size: 15px;
         line-height: 1.7;
+
+        color: #555;
     }
 
+    /* Clinic details */
+    .about-details {
+        width: 100%;
+    }
+
+    .about-detail {
+        gap: 15px;
+
+        padding: 18px 0;
+    }
+
+    .about-detail i {
+        width: 42px;
+        height: 42px;
+
+        font-size: 16px;
+    }
+
+    .about-detail strong {
+        font-size: 16px;
+    }
+
+    .about-detail span {
+        margin-top: 3px;
+
+        font-size: 14px;
+        line-height: 1.5;
+    }
     /* eind mobile versie*/
 
     /*mobile versie contact */

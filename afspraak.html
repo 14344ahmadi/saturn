@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Afspraak maken | Saturn Laser Clinic</title>
+
+    <!-- Notice ../ because we're inside a folder -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="contact-page-body">
+
+    <header class="site-header">
+
+        <a class="logo" href="index.html" aria-label="Ga naar home">
+        <img src="img/logo-header.svg" alt="Saturn Laser Clinic">
+        </a>
+
+        <nav class="nav-left" aria-label="Hoofdnavigatie links">
+        <ul class="menu">
+            <li class="dropdown">
+            <a href="gezichtsbehandeling/gezichtsbehandeling.html">
+                Gezichtsbehandeling
+                <span class="arrow" aria-hidden="true">▾</span>
+            </a>
+
+            <ul class="dropdown-menu">
+                <li>
+                            <a href="gezichtsbehandeling/hydrofacial-cleansing.html">
+                                Hydrofacial Cleansing
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/oxygen-glow-facial.html">
+                                Oxygen Glow Facial
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/rf-skin-lifting.html">
+                                RF Skin Lifting
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/diamond-hydrodermabrasion.html">
+                                Diamond Hydrodermabrasion
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/ems-meso-deep-care.html">
+                                EMS Meso Deep Care
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/bb-glow-facial-radiance.html">
+                                BB Glow Facial Radiance
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/bb-glow-tone-up.html">
+                                BB Glow Tone Up
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/ultimate-anti-aging-facial.html">
+                                Ultimate Anti-aging Facial
+                            </a>
+                        </li>
+
+                        
+            </ul>
+            </li>
+
+            <li class="dropdown">
+            <a href="laserbehandeling/laserbehandeling.html">
+                Laserbehandeling
+                <span class="arrow" aria-hidden="true">▾</span>
+            </a>
+
+            <ul class="dropdown-menu">
+                <li><a href="laserbehandeling/deel-lichaam-laserbehandeling.html">Deel Lichaam</a></li>
+                <li><a href="laserbehandeling/volledige-lichaam-laserbehandeling.html">Volledige Lichaam</a></li>
+            </ul>
+            </li>
+
+            <li class="dropdown">
+            <a href="prijzenlijst/prijzenlijst.html">
+                Prijzenlijst
+                <span class="arrow" aria-hidden="true">▾</span>
+            </a>
+
+            <ul class="dropdown-menu">
+                <li><a href="prijzenlijst/prijzenlijst-gezichtsbehandeling.html">Prijzenlijst Gezichtsbehandeling</a></li>
+                <li><a href="prijzenlijst/prijzenlijst-laserontharing.html">Prijzenlijst laserontharing</a></li>
+            </ul>
+            </li>
+        </ul>
+        </nav>
+
+
+        <nav class="nav-right" aria-label="Hoofdnavigatie rechts">
+            <ul class="menu">
+                <li><a href="over-ons.html">Over ons</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="afspraak.html" class="action-btn">Afspraak maken</a></li>
+                <li><a href="intake.html" class="action-btn primary-btn">Gratis intake</a></li>
+            </ul>
+        </nav>
+
+            <!-- =========================================
+            MOBILE MENU BUTTON
+        ========================================= -->
+
+        <a href="#intake" class="mobile-header-intake">
+            Gratis intake
+        </a>
+
+        <button class="menu-toggle"
+                type="button"
+                aria-label="Menu openen"
+                aria-expanded="false">
+
+            <span class="hamburger"></span>
+        </button>
+
+
+        <!-- =========================================
+            MOBILE MENU
+        ========================================= -->
+
+        <nav class="mobile-menu" aria-label="Mobiele navigatie">
+
+            <ul class="mobile-menu-list">
+
+
+                <!-- BEHANDELINGEN -->
+
+                <li class="mobile-dropdown">
+
+                    <button class="mobile-dropdown-toggle" type="button">
+                        <span>Gezichtsbehandeling</span>
+                        <span class="mobile-arrow">+</span>
+                    </button>
+
+                    <ul class="mobile-submenu">
+
+                        <li>
+                            <a href="gezichtsbehandeling/hydrofacial-cleansing.html">
+                                Hydrofacial Cleansing
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/oxygen-glow-facial.html">
+                                Oxygen Glow Facial
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/rf-skin-lifting.html">
+                                RF Skin Lifting
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/diamond-hydrodermabrasion.html">
+                                Diamond Hydrodermabrasion
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/ems-meso-deep-care.html">
+                                EMS Meso Deep Care
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/bb-glow-facial-radiance.html">
+                                BB Glow Facial Radiance
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/bb-glow-tone-up.html">
+                                BB Glow Tone Up
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="gezichtsbehandeling/ultimate-anti-aging-facial.html">
+                                Ultimate Anti-aging Facial
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+
+                <!-- LASERBEHANDELING -->
+
+                <li class="mobile-dropdown">
+
+                    <button class="mobile-dropdown-toggle" type="button">
+                        <span>Laserbehandeling</span>
+                        <span class="mobile-arrow">+</span>
+                    </button>
+
+                    <ul class="mobile-submenu">
+
+                        <li>
+                            <a href="laserbehandeling/deel-lichaam-laserbehandeling.html">
+                                Deel Lichaam
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="laserbehandeling/volledige-lichaam-laserbehandeling.html">
+                                Volledige Lichaam
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+                </li>
+
+
+                <!-- PRIJZENLIJST -->
+
+                <li class="mobile-dropdown">
+
+                    <button class="mobile-dropdown-toggle" type="button">
+                        <span>Prijzenlijst</span>
+                        <span class="mobile-arrow">+</span>
+                    </button>
+
+                    <ul class="mobile-submenu">
+
+                        <li>
+                            <a href="prijzenlijst/prijzenlijst-gezichtsbehandeling.html">
+                                Prijzenlijst Gezichtsbehandeling
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="prijzenlijst/prijzenlijst-laserontharing.html">
+                                Prijzenlijst Laserontharing
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+                </li>
+
+
+                <!-- NORMAL LINKS -->
+
+                <li>
+                    <a href="over-ons.html">
+                        Over ons
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+
+                <!-- BUTTONS -->
+
+                <li class="mobile-menu-button">
+                    <a href="afspraak.html">
+                        Afspraak maken
+                    </a>
+                </li>
+
+                <li class="mobile-menu-button mobile-menu-primary">
+                    <a href="intake.html">
+                        Gratis intake
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+    </header>
+
+    <main class="contact-page">
+
+        <!-- =========================================
+            CONTACT INTRO
+        ========================================== -->
+        <section class="contact-hero" id="contact">
+
+            <div class="contact-hero-content">
+
+                <span class="contact-label">Afspraak maken</span>
+
+                <h1>
+                    We helpen je<br>
+                    graag verder.
+                </h1>
+
+                 <p>
+                    Weet je al welke behandeling je wilt? Plan eenvoudig
+                    een afspraak op een moment dat voor jou goed uitkomt.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+            CONTACT FORMULIER
+        ========================================== -->
+        <section class="contact-form-section">
+
+            <div class="contact-form-container">
+
+                <form class="contact-form" action="#" method="POST">
+
+                    <!-- NAAM -->
+                    <div class="contact-form-group">
+                        <label for="naam">Naam</label>
+
+                        <input
+                            type="text"
+                            id="naam"
+                            name="naam"
+                            placeholder="Naam"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- TELEFOON -->
+                    <div class="contact-form-group">
+                        <label for="telefoon">Telefoonnummer</label>
+
+                        <input
+                            type="tel"
+                            id="telefoon"
+                            name="telefoon"
+                            placeholder="Telefoon nummer"
+                        >
+                    </div>
+
+
+                    <!-- EMAIL -->
+                    <div class="contact-form-group">
+                        <label for="email">E-mail</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Email"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- VRAAG / OPMERKING -->
+                    <div class="contact-form-group">
+                        <label for="bericht">Vraag of opmerking</label>
+
+                        <textarea
+                            id="bericht"
+                            name="bericht"
+                            placeholder="Vraag en opmerking"
+                            rows="6"
+                            required
+                        ></textarea>
+                    </div>
+
+
+                    <!-- VERSTUREN -->
+                    <button type="submit" class="contact-form-button">
+                        Versturen
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+ 
+
+    <!-- SAME FOOTER -->
+    <footer class="site-footer">
+
+    <!-- Contact / social row -->
+    <div class="footer-contact-grid">
+
+    <!-- Phone -->
+    <a href="tel:+31638287182" class="footer-contact-item">
+        <div class="footer-icon">
+            <i class="fa-solid fa-phone"></i>
+        </div>
+        <div>
+            <strong>Bel</strong>
+            <span>+31 6 38 28 71 82</span>
+        </div>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/31638287182"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-contact-item">
+
+        <div class="footer-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+
+        <div>
+            <strong>WhatsApp</strong>
+            <span>+31 6 38 28 71 82</span>
+        </div>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:info@saturnlaserclinic.nl"
+       class="footer-contact-item">
+
+        <div class="footer-icon">
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+
+        <div>
+            <strong>Mail</strong>
+            <span>info@saturnlaserclinic.nl</span>
+        </div>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/saturnlaserclinic/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-contact-item">
+
+        <div class="footer-icon">
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+
+        <div>
+            <strong>Instagram</strong>
+            <span>@saturnlaserclinic</span>
+        </div>
+    </a>
+
+    <!-- Facebook -->
+    <a href="#"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-contact-item">
+
+        <div class="footer-icon">
+            <i class="fa-brands fa-facebook-f"></i>
+        </div>
+
+        <div>
+            <strong>Facebook</strong>
+            <span>Saturn Laser Clinic</span>
+        </div>
+    </a>
+
+    <!-- TikTok -->
+    <a href="#"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-contact-item">
+
+        <div class="footer-icon">
+            <i class="fa-brands fa-tiktok"></i>
+        </div>
+
+        <div>
+            <strong>TikTok</strong>
+            <span>@YOURACCOUNT</span>
+        </div>
+    </a>
+
+</div>
+
+
+    <!-- CTA -->
+    <div class="footer-cta">
+
+        <div class="footer-cta-text">
+            <h2>Weet je niet welke behandeling bij je past?</h2>
+            <p>Plan een gratis intake. Samen bespreken we jouw wensen
+                en kijken we welke behandeling het beste bij jou past.</p>
+        </div>
+
+        <a href="#intake" class="footer-intake-btn">
+            Gratis intake
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+
+    <!-- Main footer -->
+    <div class="footer-main">
+
+        <!-- Logo / clinic -->
+        <div class="footer-column footer-brand">
+
+            <a href="index.html" aria-label="Ga naar home">
+                <img src="img/logo.jpeg"
+                    alt="Saturn Laser Clinic"
+                    class="footer-logo">
+            </a>
+
+            <h3>Saturn Laser Clinic</h3>
+            KVK nr: 42106403<br><br>
+
+            <p>
+                Professionele gezichts- en laserbehandelingen
+                met persoonlijke aandacht.
+            </p>
+
+        </div>
+
+
+        <!-- Openingstijden -->
+        <div class="footer-column">
+
+            <h3>Openingstijden</h3>
+
+            <div class="opening-hours">
+
+                <div data-day="1">
+                    <span>Maandag</span>
+                    <span>Gesloten</span>
+                </div>
+
+                <div data-day="2">
+                    <span>Dinsdag</span>
+                    <span>10:00–18:00</span>
+                </div>
+
+                <div data-day="3">
+                    <span>Woensdag</span>
+                    <span>10:00–18:00</span>
+                </div>
+
+                <div data-day="4">
+                    <span>Donderdag</span>
+                    <span>10:00–18:00</span>
+                </div>
+
+                <div data-day="5">
+                    <span>Vrijdag</span>
+                    <span>10:00–20:00</span>
+                </div>
+
+                <div data-day="6">
+                    <span>Zaterdag</span>
+                    <span>10:00–18:00</span>
+                </div>
+
+                <div data-day="0">
+                    <span>Zondag</span>
+                    <span>Gesloten</span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Location -->
+        <div class="footer-column">
+
+            <h3>Locatie</h3>
+
+            <p>
+                Voorhaven 38C<br>
+                3024 RN Rotterdam<br>
+                Nederland
+            </p>
+
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=Voorhaven+38C+3024+RN+Rotterdam"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-map-link"
+            >
+                Route bekijken →
+            </a>
+
+            
+
+        </div>
+
+
+        <!-- Services -->
+        <div class="footer-column">
+
+            <h3>Onze behandelingen</h3>
+
+            <ul class="footer-services">
+                <li><a href="gezichtsbehandeling/hydrofacial-cleansing.html"> Hydrofacial Cleansing</a></li>
+                <li><a href="gezichtsbehandeling/oxygen-glow-facial.html"> Oxygen Glow Facian</a></li>
+                <li><a href="gezichtsbehandeling/rf-skin-lifting.html"> RF Skin Lifting</a></li>
+                <li><a href="gezichtsbehandeling/diamond-hydrodermabrasion.html"> Diamond Hydrodermabrasion</a></li>
+                <li><a href="gezichtsbehandeling/ems-meso-deep-care.html"> EMS Meso Deep Care</a></li>
+                <li><a href="gezichtsbehandeling/bb-glow-facial-radiance.html">BB Glow Facial Radiance</a></li>
+                <li><a href="gezichtsbehandeling/bb-glow-facial-radiance.html"> BB Glow Tone Up</a></li>
+                <li><a href="gezichtsbehandeling/ultimate-anti-aging-facial.html"> Ultimate Anti-agin Facial</a></li>
+                <li><a href="laserbehandeling/deel-lichaam-laserbehandeling.html"> Deel lichaam Laserontharing</a></li>
+                <li><a href="laserbehandeling/volledige-lichaam-laserbehandeling.html"> Volledige lichaam Laserontharing</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+
+        <span>© 2026 Saturn Laser Clinic</span>
+
+        <div>
+            <a href="prijzenlijst/">Privacyverklaring</a>
+            <a href="cookies.html">Cookieverklaring</a>
+        </div>
+
+    </div>
+
+    </footer>
+
+</body>
+</html>
